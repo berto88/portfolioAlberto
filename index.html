@@ -35,9 +35,10 @@
 
 <body>
   <header class="topbar">
-    <nav class="container nav" aria-label="Navegación principal">
+    <nav class="container nav" aria-label="Navegación principal" data-i18n-aria="navAria">
       <a class="brand" href="#inicio">Portfolio Alberto<span></span></a>
-      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">☰ Menú</button>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks"
+        data-i18n="menuButton">☰ Menú</button>
       <div class="nav-links" id="navLinks">
         <a href="#sobre-mi" data-i18n="sobreMi">Sobre mí</a>
 
@@ -45,9 +46,7 @@
 
         <a href="#experiencia" data-i18n="experiencia">Experiencia</a>
 
-        <a href="#proyectos" id="navProyectos" data-i18n="proyectos">
-          Mis proyectos
-        </a>
+        <a href="#proyectos" id="navProyectos" data-i18n="proyectos">Mis proyectos</a>
 
         <a href="#objetivos" data-i18n="objetivos">Objetivos</a>
 
@@ -64,20 +63,20 @@
     <div id="pagina-inicio" class="page-view active">
       <div class="container hero" id="inicio">
         <div>
-          <div class="eyebrow">Desarrollo web · Java</div>
-          <h1>Hola, soy <span>Alberto.</span></h1>
-          <p class="hero-copy">Desarrollador web especializado en Java, interesado en crear soluciones útiles, mantener
+          <div class="eyebrow" data-i18n="heroEyebrow">Desarrollo web · Java</div>
+          <h1 data-i18n-html="heroTitle">Hola, soy <span>Alberto.</span></h1>
+          <p class="hero-copy" data-i18n="heroCopy">Desarrollador web especializado en Java, interesado en crear soluciones útiles, mantener
             aplicaciones robustas y seguir creciendo en el mundo del desarrollo de software.</p>
           <div class="actions">
-            <a class="button primary" href="#tecnologias">Ver tecnologías <span aria-hidden="true">→</span></a>
-            <a class="button secondary" href="#contacto">Contactar</a>
+            <a class="button primary" href="#tecnologias" data-i18n-html="heroBtnTech">Ver tecnologías <span aria-hidden="true">→</span></a>
+            <a class="button secondary" href="#contacto" data-i18n="heroBtnContact">Contactar</a>
           </div>
         </div>
-        <aside class="profile-card" aria-label="Resumen del perfil">
+        <aside class="profile-card" aria-label="Resumen del perfil" data-i18n-aria="profileAria">
           <div class="avatar" aria-hidden="true">ATM</div>
           <h2>Alberto</h2>
-          <p>Desarrollador Web Java</p>
-          <div class="status"><span class="dot"></span> En constante aprendizaje</div>
+          <p data-i18n="profileRole">Desarrollador Web Java</p>
+          <div class="status" data-i18n-html="profileStatus"><span class="dot"></span> En constante aprendizaje</div>
         </aside>
       </div>
 
@@ -85,9 +84,9 @@
         <div class="container">
 
           <div class="section-heading">
-            <div class="eyebrow">Conóceme</div>
-            <h2 class="section-title">Sobre mí</h2>
-            <p class="section-intro">
+            <div class="eyebrow" data-i18n="aboutEyebrow">Conóceme</div>
+            <h2 class="section-title" data-i18n="aboutTitle">Sobre mí</h2>
+            <p class="section-intro" data-i18n="aboutIntro">
               Mi trayectoria, mi forma de trabajar y aquello que me impulsa
               a seguir creciendo como desarrollador.
             </p>
@@ -96,25 +95,25 @@
           <div class="about-grid">
 
             <div class="panel">
-              <p>
+              <p data-i18n-html="aboutP1">
                 Soy desarrollador web especializado en <strong>Java</strong>,
                 con experiencia en el desarrollo, mantenimiento y evolución
                 de aplicaciones web empresariales.
               </p>
 
-              <p>
+              <p data-i18n-html="aboutP2">
                 A lo largo de mi trayectoria he participado en la implementación
                 de nuevas funcionalidades, el análisis de requisitos, la resolución
                 de incidencias y la mejora continua de aplicaciones existentes.
               </p>
 
-              <p>
+              <p data-i18n-html="aboutP3">
                 Me considero una persona <strong>constante, comprometida y con iniciativa</strong>.
                 Disfruto comprendiendo cómo funcionan los sistemas, analizando
                 problemas y buscando soluciones eficientes y mantenibles.
               </p>
 
-              <p>
+              <p data-i18n-html="aboutP4">
                 Mi objetivo es seguir creciendo profesionalmente, ampliar mis
                 conocimientos técnicos y asumir nuevos retos que me permitan
                 participar cada vez más en el
@@ -127,24 +126,24 @@
               <div class="principle">
                 <span class="principle-icon">↗</span>
                 <div>
-                  <strong>Iniciativa</strong>
-                  <small>Me gusta asumir nuevos retos y buscar soluciones.</small>
+                  <strong data-i18n="principleInitiative">Iniciativa</strong>
+                  <small data-i18n="principleInitiativeText">Me gusta asumir nuevos retos y buscar soluciones.</small>
                 </div>
               </div>
 
               <div class="principle">
                 <span class="principle-icon">◎</span>
                 <div>
-                  <strong>Trabajo en equipo</strong>
-                  <small>Compartir conocimientos y aprender de otras personas.</small>
+                  <strong data-i18n="principleTeam">Trabajo en equipo</strong>
+                  <small data-i18n="principleTeamText">Compartir conocimientos y aprender de otras personas.</small>
                 </div>
               </div>
 
               <div class="principle">
                 <span class="principle-icon">＋</span>
                 <div>
-                  <strong>Mejora continua</strong>
-                  <small>La constancia y el esfuerzo como parte del aprendizaje.</small>
+                  <strong data-i18n="principleImprovement">Mejora continua</strong>
+                  <small data-i18n="principleImprovementText">La constancia y el esfuerzo como parte del aprendizaje.</small>
                 </div>
               </div>
 
@@ -154,22 +153,22 @@
           <!-- FILOSOFÍA PERSONAL -->
           <div class="philosophy">
             <div class="philosophy-decoration">
-              <span>FILOSOFÍA</span>
+              <span data-i18n="philosophyTag">FILOSOFÍA</span>
             </div>
 
             <div class="philosophy-content">
-              <span class="eyebrow">Mi forma de entender el desarrollo</span>
+              <span class="eyebrow" data-i18n="philosophyEyebrow">Mi forma de entender el desarrollo</span>
 
-              <h3>El esfuerzo también construye.</h3>
+              <h3 data-i18n="philosophyTitle">El esfuerzo también construye.</h3>
 
-              <p>
+              <p data-i18n="philosophyText">
                 Creo que el esfuerzo, la constancia y las ganas de aprender
                 son fundamentales para crecer profesionalmente. Cada problema
                 es una oportunidad para adquirir nuevos conocimientos y cada
                 proyecto representa un paso más hacia mis objetivos.
               </p>
 
-              <div class="philosophy-signature">
+              <div class="philosophy-signature" data-i18n-html="philosophySignature">
                 <span></span>
                 Aprender, mejorar y seguir avanzando.
               </div>
@@ -183,37 +182,37 @@
       <section id="tecnologias">
         <div class="container">
           <div class="section-heading">
-            <div class="eyebrow">Stack tecnológico</div>
-            <h2 class="section-title">Tecnologías y conocimientos</h2>
-            <p class="section-intro">Herramientas y tecnologías con las que he trabajado.</p>
+            <div class="eyebrow" data-i18n="techEyebrow">Stack tecnológico</div>
+            <h2 class="section-title" data-i18n="techTitle">Tecnologías y conocimientos</h2>
+            <p class="section-intro" data-i18n="techIntro">Herramientas y tecnologías con las que he trabajado.</p>
           </div>
           <div class="skills-grid">
             <article class="skill-card">
-              <h3>Backend</h3>
+              <h3 data-i18n="techBackend">Backend</h3>
               <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span
                   class="tag">JSP</span><span class="tag">JPA</span><span class="tag">MVC</span></div>
             </article>
             <article class="skill-card">
-              <h3>Frontend</h3>
+              <h3 data-i18n="techFrontend">Frontend</h3>
               <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span
                   class="tag">JavaScript</span><span class="tag">Bootstrap</span><span class="tag">Ajax</span></div>
             </article>
             <article class="skill-card">
-              <h3>Bases de datos</h3>
+              <h3 data-i18n="techDatabases">Bases de datos</h3>
               <div class="tags"><span class="tag">SQL</span></div>
             </article>
             <article class="skill-card">
-              <h3>Herramientas</h3>
+              <h3 data-i18n="techTools">Herramientas</h3>
               <div class="tags"><span class="tag">Git</span><span class="tag">Maven</span><span
                   class="tag">Jenkins</span><span class="tag">SonarQube</span></div>
             </article>
             <article class="skill-card">
-              <h3>CMS</h3>
+              <h3 data-i18n="techCms">CMS</h3>
               <div class="tags"><span class="tag">OpenCMS</span></div>
             </article>
             <article class="skill-card">
-              <h3>En aprendizaje</h3>
-              <div class="tags"><span class="tag">Microservicios</span><span class="tag">Docker</span><span
+              <h3 data-i18n="techLearning">En aprendizaje</h3>
+              <div class="tags"><span class="tag" data-i18n="techMicroservices">Microservicios</span><span class="tag">Docker</span><span
                   class="tag">Kubernetes</span></div>
             </article>
           </div>
@@ -224,29 +223,30 @@
       <section id="experiencia">
         <div class="container">
           <div class="section-heading">
-            <div class="eyebrow">Trayectoria</div>
-            <h2 class="section-title">Experiencia profesional</h2>
+            <div class="eyebrow" data-i18n="expEyebrow">Trayectoria</div>
+            <h2 class="section-title" data-i18n="expTitle">Experiencia profesional</h2>
           </div>
           <div class="panel">
             <div class="experience">
-              <div class="date">Desarrollo web</div>
+              <div class="date" data-i18n="expDate1">Desarrollo web</div>
               <div>
-                <h3>Desarrollador Web Java</h3>
-                <p>Desarrollo y mantenimiento de aplicaciones web empresariales. Implementación de funcionalidades,
+                <h3 data-i18n="expTitle1">Desarrollador Web Java</h3>
+                <p data-i18n="expText1">Desarrollo y mantenimiento de aplicaciones web empresariales. Implementación de funcionalidades,
                   análisis de cambios solicitados, resolución de incidencias y colaboración con el equipo de desarrollo.
                 </p>
               </div>
             </div>
             <div class="experience">
-              <div class="date">Colaboración</div>
+              <div class="date" data-i18n="expDate2">Colaboración</div>
               <div>
-                <h3>Apoyo técnico y trabajo en equipo</h3>
-                <p>Colaboración en la incorporación de compañeros, resolución de dudas técnicas y puesta en común de
+                <h3 data-i18n="expTitle2">Apoyo técnico y trabajo en equipo</h3>
+                <p data-i18n="expText2">Colaboración en la incorporación de compañeros, resolución de dudas técnicas y puesta en común de
                   conocimientos para facilitar el trabajo del equipo.</p>
               </div>
             </div>
             <br>
-            <button class="button primary" onclick="document.getElementById('experienceModal').showModal()">
+            <button class="button primary" onclick="document.getElementById('experienceModal').showModal()"
+              data-i18n="expViewFull">
               Ver mi experiencia completa ↗
             </button>
             <!-- MODAL EXPERIENCIA PROFESIONAL -->
@@ -254,13 +254,13 @@
 
               <div class="modal-header">
                 <div>
-                  <span class="eyebrow">TRAYECTORIA PROFESIONAL</span>
-                  <h2>Mi experiencia laboral</h2>
-                  <p>Mi recorrido en el desarrollo de aplicaciones web.</p>
+                  <span class="eyebrow" data-i18n="modalEyebrow">TRAYECTORIA PROFESIONAL</span>
+                  <h2 data-i18n="modalTitle">Mi experiencia laboral</h2>
+                  <p data-i18n="modalSubtitle">Mi recorrido en el desarrollo de aplicaciones web.</p>
                 </div>
 
                 <form method="dialog">
-                  <button class="modal-close" aria-label="Cerrar ventana">×</button>
+                  <button class="modal-close" aria-label="Cerrar ventana" data-i18n-aria="modalCloseAria">×</button>
                 </form>
               </div>
 
@@ -270,36 +270,36 @@
                 <article class="job-card">
                   <div class="job-top">
                     <div>
-                      <span class="job-date">OCT 2025 — ACTUALIDAD</span>
-                      <h3>Programador sénior</h3>
-                      <span class="job-company">Soltel · Sevilla</span>
+                      <span class="job-date" data-i18n="job2Date">OCT 2025 — ACTUALIDAD</span>
+                      <h3 data-i18n="job2Title">Programador sénior</h3>
+                      <span class="job-company" data-i18n="job2Company">Soltel · Sevilla</span>
                     </div>
                     <span class="job-number">02</span>
                   </div>
 
-                  <p class="job-description">
+                  <p class="job-description" data-i18n="job2Desc">
                     Desarrollo y mantenimiento de aplicaciones y portales web,
                     implementando nuevas funcionalidades, resolviendo incidencias
                     y adaptando las soluciones a los requisitos del cliente.
                   </p>
 
-                  <h4>Responsabilidades</h4>
+                  <h4 data-i18n="jobResponsibilities">Responsabilidades</h4>
                   <ul class="job-list">
-                    <li>
+                    <li data-i18n="job2R1">
                       Desarrollo y mantenimiento evolutivo de aplicaciones web.
                     </li>
-                    <li>
+                    <li data-i18n="job2R2">
                       Resolución de incidencias y optimización del rendimiento.
                     </li>
-                    <li>
+                    <li data-i18n="job2R3">
                       Análisis de requisitos e implementación de mejoras técnicas.
                     </li>
-                    <li>
+                    <li data-i18n="job2R4">
                       Gestión de bases de datos y ejecución de pruebas funcionales.
                     </li>
                   </ul>
 
-                  <h4>Tecnologías utilizadas</h4>
+                  <h4 data-i18n="jobTechnologies">Tecnologías utilizadas</h4>
                   <div class="job-tags">
                     <span>Java</span>
                     <span>Spring Boot</span>
@@ -313,55 +313,55 @@
                 <article class="job-card">
                   <div class="job-top">
                     <div>
-                      <span class="job-date">MAR 2021 — OCT 2025</span>
-                      <h3>Desarrollador Full Stack</h3>
-                      <span class="job-company">Ayesa · Sevilla</span>
+                      <span class="job-date" data-i18n="job1Date">MAR 2021 — OCT 2025</span>
+                      <h3 data-i18n="job1Title">Desarrollador Full Stack</h3>
+                      <span class="job-company" data-i18n="job1Company">Ayesa · Sevilla</span>
                     </div>
                     <span class="job-number">01</span>
                   </div>
 
-                  <p class="job-description">
+                  <p class="job-description" data-i18n="job1Desc">
                     Desarrollo y mantenimiento integral de aplicaciones y sitios
                     web, trabajando en Front-end, Back-end y bases de datos.
                     También participé en la gestión de requisitos de cliente
                     y en la incorporación de nuevos desarrolladores.
                   </p>
 
-                  <h4>Responsabilidades</h4>
+                  <h4 data-i18n="jobResponsibilities">Responsabilidades</h4>
                   <ul class="job-list">
-                    <li>
+                    <li data-i18n="job1R1">
                       Diseño, desarrollo e implementación de nuevas funcionalidades
                       y arquitectura para aplicaciones web.
                     </li>
-                    <li>
+                    <li data-i18n="job1R2">
                       Mantenimiento de aplicaciones, resolución de incidencias
                       y ejecución de peticiones de cliente.
                     </li>
-                    <li>
+                    <li data-i18n="job1R3">
                       Optimización de código e interfaces para mejorar el
                       rendimiento, la usabilidad y la apariencia visual.
                     </li>
-                    <li>
+                    <li data-i18n="job1R4">
                       Toma de requisitos, análisis de especificaciones técnicas
                       y propuesta de mejoras al cliente.
                     </li>
-                    <li>
+                    <li data-i18n="job1R5">
                       Análisis del impacto de cambios y planificación del ciclo
                       de desarrollo.
                     </li>
-                    <li>
+                    <li data-i18n="job1R6">
                       Onboarding y mentoría de nuevos integrantes del equipo.
                     </li>
-                    <li>
+                    <li data-i18n="job1R7">
                       Pruebas de usabilidad y compatibilidad en diferentes
                       dispositivos y navegadores.
                     </li>
-                    <li>
+                    <li data-i18n="job1R8">
                       Elaboración de documentación técnica y funcional.
                     </li>
                   </ul>
 
-                  <h4>Tecnologías utilizadas</h4>
+                  <h4 data-i18n="jobTechnologies">Tecnologías utilizadas</h4>
                   <div class="job-tags">
                     <span>Java</span>
                     <span>Spring Boot</span>
@@ -384,20 +384,20 @@
 
                 <!-- FORMACIÓN -->
                 <div class="modal-extra">
-                  <span class="eyebrow">FORMACIÓN</span>
-                  <h3>Desarrollo de Aplicaciones Web</h3>
-                  <p>
+                  <span class="eyebrow" data-i18n="eduEyebrow">FORMACIÓN</span>
+                  <h3 data-i18n="eduTitle">Desarrollo de Aplicaciones Web</h3>
+                  <p data-i18n="eduCenter">
                     Grado Superior · Colegio Altair (Sevilla)
                   </p>
-                  <span class="education-grade">Nota media: 9</span>
+                  <span class="education-grade" data-i18n="eduGrade">Nota media: 9</span>
                 </div>
 
               </div>
 
               <div class="modal-footer">
-                <span>Experiencia profesional · Desarrollo web</span>
+                <span data-i18n="modalFooter">Experiencia profesional · Desarrollo web</span>
                 <form method="dialog">
-                  <button class="button secondary">Cerrar</button>
+                  <button class="button secondary" data-i18n="modalClose">Cerrar</button>
                 </form>
               </div>
 
@@ -412,9 +412,9 @@
         <div class="container">
 
           <div class="section-heading">
-            <span class="eyebrow">PROYECTOS Y DESARROLLO</span>
-            <h2 class="section-title">Mis proyectos</h2>
-            <p class="section-intro">
+            <span class="eyebrow" data-i18n="projEyebrow">PROYECTOS Y DESARROLLO</span>
+            <h2 class="section-title" data-i18n="projTitle">Mis proyectos</h2>
+            <p class="section-intro" data-i18n="projIntro">
               A lo largo de mi trayectoria he participado en el desarrollo
               y mantenimiento de diferentes aplicaciones y soluciones web.
             </p>
@@ -422,16 +422,16 @@
 
           <div class="work-notice">
             <div>
-              <h3>Confidencialidad y privacidad</h3>
+              <h3 data-i18n="noticeTitle">Confidencialidad y privacidad</h3>
 
-              <p>
+              <p data-i18n="noticeP1">
                 Por políticas de seguridad, privacidad y confidencialidad
                 de las empresas y clientes con los que he trabajado,
                 no me es posible mostrar públicamente los proyectos reales
                 en los que he participado.
               </p>
 
-              <p>
+              <p data-i18n="noticeP2">
                 No obstante, he preparado algunos ejemplos demostrativos
                 inspirados en soluciones y funcionalidades similares
                 a las que he desarrollado durante mi experiencia profesional.
@@ -444,9 +444,9 @@
           <article class="work-card map-project-card">
             <div class="map-project-header">
               <div>
-                <span class="eyebrow">DEMO INTERACTIVA</span>
-                <h3>Mapa de Monumentos</h3>
-                <p>
+                <span class="eyebrow" data-i18n="mapEyebrow">DEMO INTERACTIVA</span>
+                <h3 data-i18n="mapTitle">Mapa de Monumentos</h3>
+                <p data-i18n="mapIntro">
                   Aplicación de ejemplo para visualizar monumentos geográficos,
                   consultar su información y filtrar los resultados mediante
                   diferentes criterios.
@@ -456,112 +456,127 @@
 
             <div class="map-dashboard">
               <aside class="map-sidebar">
-                <h4>Buscar monumentos</h4>
+                <h4 data-i18n="mapSearchTitle">Buscar monumentos</h4>
 
                 <div class="map-field">
-                  <label for="mapSearch">Nombre o localidad</label>
-                  <input type="search" id="mapSearch" placeholder="Buscar monumento...">
+                  <label for="mapSearch" data-i18n="mapSearchLabel">Nombre o localidad</label>
+                  <input type="search" id="mapSearch" placeholder="Buscar monumento..."
+                    data-i18n-placeholder="mapSearchPlaceholder">
                 </div>
 
                 <div class="map-field">
-                  <label for="mapProvince">Provincia</label>
+                  <label for="mapProvince" data-i18n="mapProvinceLabel">Provincia</label>
                   <select id="mapProvince">
-                    <option value="">Todas las provincias</option>
+                    <option value="" data-i18n="mapAllProvinces">Todas las provincias</option>
                   </select>
                 </div>
 
                 <div class="map-field">
-                  <label for="mapType">Tipo de monumento</label>
+                  <label for="mapType" data-i18n="mapTypeLabel">Tipo de monumento</label>
                   <select id="mapType">
-                    <option value="">Todos los tipos</option>
+                    <option value="" data-i18n="mapAllTypes">Todos los tipos</option>
                   </select>
                 </div>
 
                 <div class="map-results-count">
-                  <span>Monumentos encontrados</span>
+                  <span data-i18n="mapFound">Monumentos encontrados</span>
                   <strong id="mapCounter">0</strong>
                 </div>
 
                 <div class="map-results">
-                  <h4>Resultados</h4>
+                  <h4 data-i18n="mapResults">Resultados</h4>
                   <div id="mapResultsList">
-                    <p class="map-empty">Cargando monumento...</p>
+                    <p class="map-empty" data-i18n="mapLoading">Cargando monumento...</p>
                   </div>
                 </div>
               </aside>
 
               <div class="map-content">
                 <div id="mapa-sevilla" class="map-preview"></div>
-                <p class="map-attribution">
+                <p class="map-attribution" data-i18n="mapAttribution">
                   Datos geográficos de monumentos de Andalucía para demostración.
                 </p>
 
                 <div class="map-project-technologies">
-                  <p>Tecnologías utilizadas:</p>
+                  <p data-i18n="mapTechUsed">Tecnologías utilizadas:</p>
 
                   <div class="tags">
 
-                    <span class="tag" data-tooltip="Estructura y organización del contenido de la interfaz del mapa.">
+                    <span class="tag" data-tooltip="Estructura y organización del contenido de la interfaz del mapa."
+                      data-i18n-tooltip="ttHtml5">
                       HTML5
                     </span>
 
                     <span class="tag"
-                      data-tooltip="Diseño visual, estilos, animaciones y adaptación a diferentes dispositivos.">
+                      data-tooltip="Diseño visual, estilos, animaciones y adaptación a diferentes dispositivos."
+                      data-i18n-tooltip="ttCss3">
                       CSS3
                     </span>
 
                     <span class="tag"
-                      data-tooltip="Desarrollo de la lógica del mapa, filtros, marcadores e interacciones.">
+                      data-tooltip="Desarrollo de la lógica del mapa, filtros, marcadores e interacciones."
+                      data-i18n-tooltip="ttJs">
                       JavaScript ES6+
                     </span>
 
                     <span class="tag"
-                      data-tooltip="Manipulación dinámica de elementos HTML para actualizar los resultados.">
+                      data-tooltip="Manipulación dinámica de elementos HTML para actualizar los resultados."
+                      data-i18n-tooltip="ttDom">
                       DOM API
                     </span>
 
-                    <span class="tag" data-tooltip="Carga asíncrona del archivo KML desde el proyecto.">
+                    <span class="tag" data-tooltip="Carga asíncrona del archivo KML desde el proyecto."
+                      data-i18n-tooltip="ttFetch">
                       Fetch API
                     </span>
 
                     <span class="tag"
-                      data-tooltip="Formato basado en XML utilizado para almacenar información geográfica.">
+                      data-tooltip="Formato basado en XML utilizado para almacenar información geográfica."
+                      data-i18n-tooltip="ttXml">
                       XML
                     </span>
 
                     <span class="tag"
-                      data-tooltip="Archivo que contiene las coordenadas y los datos de los monumentos.">
+                      data-tooltip="Archivo que contiene las coordenadas y los datos de los monumentos."
+                      data-i18n-tooltip="ttKml">
                       KML
                     </span>
 
-                    <span class="tag" data-tooltip="Procesamiento y lectura del contenido XML del archivo KML.">
+                    <span class="tag" data-tooltip="Procesamiento y lectura del contenido XML del archivo KML."
+                      data-i18n-tooltip="ttDomParser">
                       DOMParser
                     </span>
 
                     <span class="tag"
-                      data-tooltip="Estructura de datos geográficos utilizada para representar los monumentos en el mapa.">
+                      data-tooltip="Estructura de datos geográficos utilizada para representar los monumentos en el mapa."
+                      data-i18n-tooltip="ttGeoJson">
                       GeoJSON
                     </span>
 
                     <span class="tag"
-                      data-tooltip="Biblioteca JavaScript utilizada para crear y gestionar el mapa interactivo.">
+                      data-tooltip="Biblioteca JavaScript utilizada para crear y gestionar el mapa interactivo."
+                      data-i18n-tooltip="ttLeaflet">
                       Leaflet
                     </span>
 
                     <span class="tag"
-                      data-tooltip="Complemento que agrupa los marcadores cercanos para mejorar la visualización.">
+                      data-tooltip="Complemento que agrupa los marcadores cercanos para mejorar la visualización."
+                      data-i18n-tooltip="ttCluster">
                       MarkerCluster
                     </span>
 
-                    <span class="tag" data-tooltip="Cartografía utilizada como mapa base para representar Andalucía.">
+                    <span class="tag" data-tooltip="Cartografía utilizada como mapa base para representar Andalucía."
+                      data-i18n-tooltip="ttOsm">
                       OpenStreetMap
                     </span>
 
-                    <span class="tag" data-tooltip="Adaptación de la interfaz para ordenadores, tablets y móviles.">
+                    <span class="tag" data-tooltip="Adaptación de la interfaz para ordenadores, tablets y móviles."
+                      data-i18n-tooltip="ttResponsive">
                       Responsive Design
                     </span>
 
-                    <span class="tag" data-tooltip="Sistema de distribución de elementos mediante cuadrículas.">
+                    <span class="tag" data-tooltip="Sistema de distribución de elementos mediante cuadrículas."
+                      data-i18n-tooltip="ttGrid">
                       CSS Grid
                     </span>
 
@@ -579,27 +594,27 @@
       <section id="objetivos">
         <div class="container">
           <div class="section-heading">
-            <div class="eyebrow">Mirando hacia delante</div>
-            <h2 class="section-title">Mis próximos objetivos</h2>
-            <p class="section-intro">Seguir evolucionando profesionalmente, ampliar mis conocimientos y asumir nuevos
+            <div class="eyebrow" data-i18n="goalsEyebrow">Mirando hacia delante</div>
+            <h2 class="section-title" data-i18n="goalsTitle">Mis próximos objetivos</h2>
+            <p class="section-intro" data-i18n="goalsIntro">Seguir evolucionando profesionalmente, ampliar mis conocimientos y asumir nuevos
               retos técnicos.</p>
           </div>
           <div class="goals-grid">
             <article class="goal">
-              <div class="goal-number">01 / CRECIMIENTO</div>
-              <h3>Convertirme en Analista</h3>
-              <p>Profundizar en el análisis de requisitos, el diseño de soluciones y la arquitectura de aplicaciones.
+              <div class="goal-number" data-i18n="goal1Number">01 / CRECIMIENTO</div>
+              <h3 data-i18n="goal1Title">Convertirme en Analista</h3>
+              <p data-i18n="goal1Text">Profundizar en el análisis de requisitos, el diseño de soluciones y la arquitectura de aplicaciones.
               </p>
             </article>
             <article class="goal">
-              <div class="goal-number">02 / ARQUITECTURA</div>
-              <h3>Microservicios</h3>
-              <p>Aprender a diseñar y desarrollar sistemas distribuidos, entendiendo su comunicación y sus ventajas.</p>
+              <div class="goal-number" data-i18n="goal2Number">02 / ARQUITECTURA</div>
+              <h3 data-i18n="goal2Title">Microservicios</h3>
+              <p data-i18n="goal2Text">Aprender a diseñar y desarrollar sistemas distribuidos, entendiendo su comunicación y sus ventajas.</p>
             </article>
             <article class="goal">
-              <div class="goal-number">03 / DEVOPS</div>
-              <h3>Docker y Kubernetes</h3>
-              <p>Adquirir experiencia en contenerización, despliegue, gestión y orquestación de aplicaciones.</p>
+              <div class="goal-number" data-i18n="goal3Number">03 / DEVOPS</div>
+              <h3 data-i18n="goal3Title">Docker y Kubernetes</h3>
+              <p data-i18n="goal3Text">Adquirir experiencia en contenerización, despliegue, gestión y orquestación de aplicaciones.</p>
             </article>
           </div>
         </div>
@@ -610,22 +625,22 @@
         <div class="container">
           <div class="contact-box">
             <div>
-              <h2>¿Hablamos?</h2>
-              <p>Estoy abierto a compartir ideas, aprender y conocer nuevos proyectos.</p>
+              <h2 data-i18n="contactTitle">¿Hablamos?</h2>
+              <p data-i18n="contactText">Estoy abierto a compartir ideas, aprender y conocer nuevos proyectos.</p>
             </div>
 
             <div class="contact-action">
-              <a class="button primary" href="mailto:bertotorre88@gmail.com">
+              <a class="button primary" href="mailto:bertotorre88@gmail.com" data-i18n-html="contactBtn">
                 Escríbeme <span aria-hidden="true">↗</span>
               </a>
 
               <div class="email-popup">
-                <span class="popup-label">También puedes escribirme a:</span>
+                <span class="popup-label" data-i18n="contactAlso">También puedes escribirme a:</span>
 
                 <div class="email-copy">
                   <span class="email-address">bertotorre88@gmail.com</span>
 
-                  <button type="button" id="copyEmail">
+                  <button type="button" id="copyEmail" data-i18n-html="contactCopy">
                     Copiar <span aria-hidden="true">⧉</span>
                   </button>
                 </div>
@@ -641,8 +656,8 @@
 
   <footer>
     <div class="container">
-      <span>© <span id="year"></span> Alberto · Portfolio personal</span>
-      <span>Diseñado y desarrollado por mí.</span>
+      <span>© <span id="year"></span> Alberto · <span data-i18n="footerPortfolio">Portfolio personal</span></span>
+      <span data-i18n="footerCredits">Diseñado y desarrollado por mí.</span>
     </div>
   </footer>
 </body>
