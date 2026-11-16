@@ -1436,3 +1436,128 @@
     justify-content: flex-start;
   }
 }
+
+/* =========================================
+   TECNOLOGÍAS CON POPUP INFORMATIVO
+========================================= */
+
+.map-project-technologies .tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: help;
+  transition: background .2s ease,
+              border-color .2s ease,
+              transform .2s ease;
+}
+
+.map-project-technologies .tag:hover {
+  background: rgba(124, 156, 255, .22);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Popup */
+
+.map-project-technologies .tag::after {
+  content: attr(data-tooltip);
+
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translate(-50%, 5px);
+
+  width: 230px;
+  padding: 11px 13px;
+
+  color: var(--text);
+  background: #0b1020;
+  border: 1px solid rgba(124, 156, 255, .4);
+  border-radius: 10px;
+
+  font-size: .76rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+
+  white-space: normal;
+  overflow-wrap: break-word;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  z-index: 100;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, .35);
+
+  transition: opacity .2s ease,
+              transform .2s ease,
+              visibility .2s ease;
+}
+
+/* Flecha del popup */
+
+.map-project-technologies .tag::before {
+  content: "";
+
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  background: #0b1020;
+  border-right: 1px solid rgba(124, 156, 255, .4);
+  border-bottom: 1px solid rgba(124, 156, 255, .4);
+
+  transform: translateX(-50%) rotate(45deg);
+
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 101;
+  transition: opacity .2s ease,
+              visibility .2s ease;
+}
+
+/* Mostrar popup */
+
+.map-project-technologies .tag:hover::after,
+.map-project-technologies .tag:hover::before,
+.map-project-technologies .tag:focus-visible::after,
+.map-project-technologies .tag:focus-visible::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.map-project-technologies .tag:hover::after,
+.map-project-technologies .tag:focus-visible::after {
+  transform: translate(-50%, 0);
+}
+
+/* Evitar problemas en dispositivos táctiles */
+
+@media (hover: none) {
+  .map-project-technologies .tag {
+    cursor: default;
+  }
+}
+
+/* Permitir que los popups sobresalgan de su contenedor */
+.map-project-card,
+.map-content,
+.map-project-technologies,
+.map-project-technologies .tags {
+  overflow: visible;
+}
+
+/* Mantener las etiquetas por encima de otros elementos */
+.map-project-technologies .tag {
+  z-index: 1;
+}
+
+.map-project-technologies .tag:hover,
+.map-project-technologies .tag:focus-visible {
+  z-index: 10;
+}
