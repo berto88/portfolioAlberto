@@ -238,75 +238,103 @@ footer .container { display: flex; justify-content: space-between; gap: 15px; fl
    DISEÑO POPUP
    ========================= */
 
-/* Contenedor del botón y popup */
-.contact-action {
-  position: relative;
-  display: inline-block;
-}
+/* =========================
+   DISEÑO POPUP
+   ========================= */
 
-/* Popup del correo */
-.email-popup {
-  position: absolute;
-  bottom: calc(100% + 15px);
-  right: 0;
-  width: 270px;
-  padding: 16px;
-  background: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
-
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: all 0.25s ease;
-  z-index: 10;
-}
-
-/* Mostrar popup al pasar el ratón o enfocar con teclado */
-.contact-action:hover .email-popup,
-.contact-action:focus-within .email-popup {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.popup-label {
-  display: block;
-  font-size: 12px;
-  color: #888;
-  margin-bottom: 10px;
-}
-
-.email-copy {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.email-copy > span {
-  font-size: 13px;
-  font-weight: 600;
-  color: #222;
-  overflow-wrap: anywhere;
-}
-
-.email-copy button {
-  border: none;
-  border-radius: 7px;
-  padding: 7px 10px;
-  background: #eee;
-  color: #222;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  white-space: nowrap;
-}
-
-.email-copy button:hover {
-  background: #ddd;
-}
+   .contact-action {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .email-popup {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    right: 0;
+  
+    box-sizing: border-box;
+    width: 320px;
+    max-width: calc(100vw - 40px);
+    padding: 18px;
+  
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .35);
+  
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+  
+    transition: opacity .2s ease,
+                transform .2s ease,
+                visibility .2s ease;
+  
+    z-index: 100;
+  }
+  
+  .contact-action.show-popup .email-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .popup-label {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  
+  .email-copy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .email-address {
+    flex: 1 1 150px;
+    min-width: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    overflow-wrap: anywhere;
+  }
+  
+  .email-copy button {
+    flex-shrink: 0;
+    border: 1px solid rgba(124, 156, 255, .25);
+    border-radius: 8px;
+    padding: 8px 12px;
+  
+    background: rgba(124, 156, 255, .12);
+    color: var(--accent);
+  
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+  
+    transition: background .2s ease,
+                color .2s ease,
+                transform .2s ease;
+  }
+  
+  .email-copy button:hover {
+    background: var(--accent);
+    color: #091020;
+    transform: translateY(-2px);
+  }
+  
+  .copy-feedback {
+    display: block;
+    min-height: 18px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--accent-2);
+  }
 
 /* =========================
    DISEÑO RESPONSIVE
