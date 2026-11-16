@@ -1,31 +1,43 @@
+
 window.MapaCentros = (() => {
 
     let mapa = null;
     let grupoMarcadores = null;
     let marcadores = new Map();
     let inicializado = false;
+    let inicializando = false;
   
     const elementoId = "mapa-sevilla";
     const archivoKML = "./data/monumentos.kml";
   
     async function inicializar() {
+  
       if (inicializado) {
         mapa.invalidateSize();
         return;
       }
   
+      if (inicializando) return;
+  
       const elemento = document.getElementById(elementoId);
   
-      if (!elemento || !window.L) {
-        return;
-      }
+      if (!elemento || !window.L) return;
   
-      inicializado = true;
+      inicializando = true;
   
       try {
+  
+        // Evitar que quede una instancia anterior de Leaflet.
+        if (mapa) {
+          mapa.remove();
+          mapa = null;
+        }
+  
+        marcadores.clear();
+  
         mapa = L.map(elementoId, {
           scrollWheelZoom: false
-        }).setView([37.35, -5.95], 10);
+        }).setView([37.3, -4.8], 7);
   
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
           maxZoom: 19,
@@ -39,25 +51,29 @@ window.MapaCentros = (() => {
   
         mapa.addLayer(grupoMarcadores);
   
-        const centros = await MapaKML.cargar(archivoKML);
+        // Cargar monumentos desde el KML.
+        const monumentos = await MapaKML.cargar(archivoKML);
   
-        if (centros.length === 0) {
-          throw new Error("El KML no contiene centros válidos.");
+        if (monumentos.length === 0) {
+          throw new Error("El KML no contiene monumentos válidos.");
         }
   
-        centros.forEach(centro => {
-          const marcador = MapaMarcadores.crear(centro);
-          marcadores.set(centro.properties.id, marcador);
+        // Crear los marcadores.
+        monumentos.forEach(monumento => {
+          const marcador = MapaMarcadores.crear(monumento);
+          marcadores.set(monumento.properties.id, marcador);
         });
   
+        // Inicializar filtros y listado.
         MapaFiltros.inicializar(
-          centros,
+          monumentos,
           actualizarMarcadores,
-          seleccionarCentro
+          seleccionarMonumento
         );
   
-        actualizarMarcadores(centros);
+        actualizarMarcadores(monumentos);
   
+        // Ajustar el mapa a todos los monumentos.
         const limites = L.featureGroup(
           Array.from(marcadores.values())
         ).getBounds();
@@ -66,38 +82,58 @@ window.MapaCentros = (() => {
           mapa.fitBounds(limites, { padding: [35, 35] });
         }
   
-        setTimeout(() => mapa.invalidateSize(), 150);
+        inicializado = true;
   
-        } catch (error) {
-            console.error("Error al inicializar el mapa:", error);
-        
-            elemento.innerHTML = `
-            <div class="map-error">
-                <strong>No se ha podido cargar el mapa.</strong>
-                <p>${error.message}</p>
-            </div>
-            `;
-        
-            inicializado = false;
+        setTimeout(() => {
+          if (mapa) mapa.invalidateSize();
+        }, 150);
+  
+      } catch (error) {
+  
+        console.error("Error al inicializar el mapa:", error);
+  
+        // Destruir la instancia si la inicialización ha fallado.
+        if (mapa) {
+          mapa.remove();
+          mapa = null;
         }
+  
+        grupoMarcadores = null;
+        marcadores.clear();
+        inicializado = false;
+  
+        elemento.innerHTML = `
+          <div class="map-error">
+            <strong>No se ha podido cargar el mapa.</strong>
+            <p>${error.message}</p>
+          </div>
+        `;
+  
+      } finally {
+        inicializando = false;
+      }
     }
   
-    function actualizarMarcadores(centrosFiltrados) {
+    function actualizarMarcadores(monumentosFiltrados) {
+  
       if (!grupoMarcadores) return;
   
       grupoMarcadores.clearLayers();
   
-      centrosFiltrados.forEach(centro => {
-        const marcador = marcadores.get(centro.properties.id);
+      monumentosFiltrados.forEach(monumento => {
+  
+        const marcador = marcadores.get(monumento.properties.id);
   
         if (marcador) {
           grupoMarcadores.addLayer(marcador);
         }
+  
       });
     }
   
-    function seleccionarCentro(centro) {
-      const marcador = marcadores.get(centro.properties.id);
+    function seleccionarMonumento(monumento) {
+  
+      const marcador = marcadores.get(monumento.properties.id);
   
       if (!marcador || !mapa) return;
   
@@ -109,6 +145,7 @@ window.MapaCentros = (() => {
     }
   
     function comprobarVisibilidad() {
+  
       const pagina = document.getElementById("pagina-proyectos");
   
       if (pagina && pagina.classList.contains("active")) {
@@ -117,13 +154,12 @@ window.MapaCentros = (() => {
     }
   
     function observarNavegacion() {
+  
       const pagina = document.getElementById("pagina-proyectos");
   
       if (!pagina) return;
   
-      const observador = new MutationObserver(() => {
-        comprobarVisibilidad();
-      });
+      const observador = new MutationObserver(comprobarVisibilidad);
   
       observador.observe(pagina, {
         attributes: true,
@@ -140,3 +176,4 @@ window.MapaCentros = (() => {
     };
   
   })();
+  
