@@ -8,43 +8,29 @@
     content="Portfolio personal de Alberto, desarrollador web especializado en Java y tecnologías web.">
   <meta name="theme-color" content="#0b1020">
   <title>Alberto | Desarrollador Web Java</title>
-<!-- Leaflet -->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
->
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
-<!-- MarkerCluster -->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
->
+  <!-- MarkerCluster -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
 
-<!-- Estilos propios -->
-<link rel="stylesheet" href="css/styles.css">
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/styles.css">
 
-<!-- Leaflet y MarkerCluster -->
-<script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-  defer
-></script>
-<script
-  src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
-  defer
-></script>
+  <!-- Leaflet y MarkerCluster -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="js/traducciones.js" defer></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" defer></script>
 
-<!-- JavaScript del mapa -->
-<script src="js/mapa/kml.js" defer></script>
-<script src="js/mapa/marcadores.js" defer></script>
-<script src="js/mapa/filtros.js" defer></script>
-<script src="js/mapa/mapa.js" defer></script>
+  <!-- JavaScript del mapa -->
+  <script src="js/mapa/kml.js" defer></script>
+  <script src="js/mapa/marcadores.js" defer></script>
+  <script src="js/mapa/filtros.js" defer></script>
+  <script src="js/mapa/mapa.js" defer></script>
 
-<!-- JavaScript principal del portfolio -->
-<script src="js/main.js" defer></script>
+  <!-- JavaScript principal del portfolio -->
+  <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -53,12 +39,23 @@
       <a class="brand" href="#inicio">Portfolio Alberto<span></span></a>
       <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">☰ Menú</button>
       <div class="nav-links" id="navLinks">
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#tecnologias">Tecnologías</a>
-        <a href="#experiencia">Experiencia</a>
-        <a href="#proyectos" id="navProyectos">Mis proyectos</a>
-        <a href="#objetivos">Objetivos</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#sobre-mi" data-i18n="sobreMi">Sobre mí</a>
+
+        <a href="#tecnologias" data-i18n="tecnologias">Tecnologías</a>
+
+        <a href="#experiencia" data-i18n="experiencia">Experiencia</a>
+
+        <a href="#proyectos" id="navProyectos" data-i18n="proyectos">
+          Mis proyectos
+        </a>
+
+        <a href="#objetivos" data-i18n="objetivos">Objetivos</a>
+
+        <a href="#contacto" data-i18n="contacto">Contacto</a>
+
+        <button id="languageButton" class="language-button" type="button">
+          EN
+        </button>
       </div>
     </nav>
   </header>
@@ -413,7 +410,7 @@
 
       <section id="proyectos">
         <div class="container">
-    
+
           <div class="section-heading">
             <span class="eyebrow">PROYECTOS Y DESARROLLO</span>
             <h2 class="section-title">Mis proyectos</h2>
@@ -422,18 +419,18 @@
               y mantenimiento de diferentes aplicaciones y soluciones web.
             </p>
           </div>
-    
+
           <div class="work-notice">
             <div>
               <h3>Confidencialidad y privacidad</h3>
-    
+
               <p>
                 Por políticas de seguridad, privacidad y confidencialidad
                 de las empresas y clientes con los que he trabajado,
                 no me es posible mostrar públicamente los proyectos reales
                 en los que he participado.
               </p>
-    
+
               <p>
                 No obstante, he preparado algunos ejemplos demostrativos
                 inspirados en soluciones y funcionalidades similares
@@ -443,7 +440,7 @@
               </p>
             </div>
           </div>
-    
+
           <article class="work-card map-project-card">
             <div class="map-project-header">
               <div>
@@ -456,39 +453,35 @@
                 </p>
               </div>
             </div>
-          
+
             <div class="map-dashboard">
               <aside class="map-sidebar">
                 <h4>Buscar monumentos</h4>
-          
+
                 <div class="map-field">
                   <label for="mapSearch">Nombre o localidad</label>
-                  <input
-                    type="search"
-                    id="mapSearch"
-                    placeholder="Buscar monumento..."
-                  >
+                  <input type="search" id="mapSearch" placeholder="Buscar monumento...">
                 </div>
-          
+
                 <div class="map-field">
                   <label for="mapProvince">Provincia</label>
                   <select id="mapProvince">
                     <option value="">Todas las provincias</option>
                   </select>
                 </div>
-          
+
                 <div class="map-field">
                   <label for="mapType">Tipo de monumento</label>
                   <select id="mapType">
                     <option value="">Todos los tipos</option>
                   </select>
                 </div>
-          
+
                 <div class="map-results-count">
                   <span>Monumentos encontrados</span>
                   <strong id="mapCounter">0</strong>
                 </div>
-          
+
                 <div class="map-results">
                   <h4>Resultados</h4>
                   <div id="mapResultsList">
@@ -496,7 +489,7 @@
                   </div>
                 </div>
               </aside>
-          
+
               <div class="map-content">
                 <div id="mapa-sevilla" class="map-preview"></div>
                 <p class="map-attribution">
@@ -505,74 +498,82 @@
 
                 <div class="map-project-technologies">
                   <p>Tecnologías utilizadas:</p>
-                
+
                   <div class="tags">
-                
+
                     <span class="tag" data-tooltip="Estructura y organización del contenido de la interfaz del mapa.">
                       HTML5
                     </span>
-                
-                    <span class="tag" data-tooltip="Diseño visual, estilos, animaciones y adaptación a diferentes dispositivos.">
+
+                    <span class="tag"
+                      data-tooltip="Diseño visual, estilos, animaciones y adaptación a diferentes dispositivos.">
                       CSS3
                     </span>
-                
-                    <span class="tag" data-tooltip="Desarrollo de la lógica del mapa, filtros, marcadores e interacciones.">
+
+                    <span class="tag"
+                      data-tooltip="Desarrollo de la lógica del mapa, filtros, marcadores e interacciones.">
                       JavaScript ES6+
                     </span>
-                
-                    <span class="tag" data-tooltip="Manipulación dinámica de elementos HTML para actualizar los resultados.">
+
+                    <span class="tag"
+                      data-tooltip="Manipulación dinámica de elementos HTML para actualizar los resultados.">
                       DOM API
                     </span>
-                
+
                     <span class="tag" data-tooltip="Carga asíncrona del archivo KML desde el proyecto.">
                       Fetch API
                     </span>
-                
-                    <span class="tag" data-tooltip="Formato basado en XML utilizado para almacenar información geográfica.">
+
+                    <span class="tag"
+                      data-tooltip="Formato basado en XML utilizado para almacenar información geográfica.">
                       XML
                     </span>
-                
-                    <span class="tag" data-tooltip="Archivo que contiene las coordenadas y los datos de los monumentos.">
+
+                    <span class="tag"
+                      data-tooltip="Archivo que contiene las coordenadas y los datos de los monumentos.">
                       KML
                     </span>
-                
+
                     <span class="tag" data-tooltip="Procesamiento y lectura del contenido XML del archivo KML.">
                       DOMParser
                     </span>
-                
-                    <span class="tag" data-tooltip="Estructura de datos geográficos utilizada para representar los monumentos en el mapa.">
+
+                    <span class="tag"
+                      data-tooltip="Estructura de datos geográficos utilizada para representar los monumentos en el mapa.">
                       GeoJSON
                     </span>
-                
-                    <span class="tag" data-tooltip="Biblioteca JavaScript utilizada para crear y gestionar el mapa interactivo.">
+
+                    <span class="tag"
+                      data-tooltip="Biblioteca JavaScript utilizada para crear y gestionar el mapa interactivo.">
                       Leaflet
                     </span>
-                
-                    <span class="tag" data-tooltip="Complemento que agrupa los marcadores cercanos para mejorar la visualización.">
+
+                    <span class="tag"
+                      data-tooltip="Complemento que agrupa los marcadores cercanos para mejorar la visualización.">
                       MarkerCluster
                     </span>
-                
+
                     <span class="tag" data-tooltip="Cartografía utilizada como mapa base para representar Andalucía.">
                       OpenStreetMap
                     </span>
-                
+
                     <span class="tag" data-tooltip="Adaptación de la interfaz para ordenadores, tablets y móviles.">
                       Responsive Design
                     </span>
-                
+
                     <span class="tag" data-tooltip="Sistema de distribución de elementos mediante cuadrículas.">
                       CSS Grid
                     </span>
-                
+
                   </div>
                 </div>
               </div>
             </div>
           </article>
-    
+
         </div>
       </section>
-    
+
     </div>
     <div id="pagina-objetivos" class="page-view">
       <section id="objetivos">
