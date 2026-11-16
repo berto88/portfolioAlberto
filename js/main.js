@@ -17,6 +17,99 @@ if (menuButton && navLinks) {
   });
 }
 
+/* =========================================
+   CERRAR MODAL AL PULSAR FUERA
+========================================= */
+
+const experienceModal = document.getElementById("experienceModal");
+
+if (experienceModal) {
+
+  experienceModal.addEventListener("click", (event) => {
+
+    // Comprobar si el clic se ha realizado fuera del contenido
+    if (event.target === experienceModal) {
+      experienceModal.close();
+    }
+
+  });
+
+}
+
+/* =========================================
+   NAVEGACIÓN ENTRE PÁGINAS
+========================================= */
+
+// Mostrar la página correspondiente a un enlace
+function mostrarPagina(hash, actualizarHistorial = false) {
+
+    const id = hash.replace("#", "");
+    const elemento = document.getElementById(id);
+  
+    if (!elemento) return;
+  
+    // Buscar el contenedor de página al que pertenece
+    const pagina = elemento.closest(".page-view");
+  
+    if (!pagina) return;
+  
+    // Ocultar todas las páginas
+    document.querySelectorAll(".page-view").forEach(p => {
+      p.classList.remove("active");
+    });
+  
+    // Mostrar la página seleccionada
+    pagina.classList.add("active");
+  
+    // Actualizar la dirección del navegador
+    if (actualizarHistorial && window.location.hash !== hash) {
+      history.pushState(null, "", hash);
+    }
+  
+    // Subir al principio
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+  
+  // Interceptar los enlaces internos
+  document.querySelectorAll('a[href^="#"]').forEach(enlace => {
+  
+    enlace.addEventListener("click", function(e) {
+  
+      const hash = this.getAttribute("href");
+  
+      if (!hash || hash === "#") return;
+  
+      const elemento = document.getElementById(hash.substring(1));
+  
+      if (!elemento || !elemento.closest(".page-view")) return;
+  
+      e.preventDefault();
+  
+      mostrarPagina(hash, true);
+    });
+  
+  });
+  
+  // Gestionar los botones atrás y adelante del navegador
+  window.addEventListener("popstate", () => {
+  
+    if (window.location.hash) {
+      mostrarPagina(window.location.hash);
+    } else {
+      mostrarPagina("#sobre-mi");
+    }
+  
+  });
+  
+  // Comprobar si se accede directamente a una sección mediante su URL
+  if (window.location.hash) {
+    mostrarPagina(window.location.hash);
+  }
+
+
 // Actualiza automáticamente el año del pie de página
 const yearElement = document.getElementById('year');
 
@@ -42,7 +135,7 @@ if (contactAction) {
     contactAction.addEventListener("mouseleave", () => {
         popupTimeout = setTimeout(() => {
             contactAction.classList.remove("show-popup");
-        }, 2000);
+        }, 1500);
     });
 
     // Mantenerlo abierto si se navega con el teclado
@@ -56,9 +149,10 @@ if (contactAction) {
             if (!contactAction.matches(":focus-within")) {
                 contactAction.classList.remove("show-popup");
             }
-        }, 2000);
+        }, 1500);
     });
 }
+
 // ===================================
 // COPIAR CORREO AL PORTAPAPELES
 // ===================================
