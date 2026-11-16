@@ -2039,6 +2039,11 @@
   background: transparent;
 }
 
+/* Fondo del icono de filosofía en tema claro */
+:root[data-theme="light"] .principle-icon {
+  background: rgba(246, 239, 227, .92);
+}
+
 /* Móvil: menú desplegable */
 @media (max-width: 620px) {
   .nav-links {
