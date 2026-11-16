@@ -36,7 +36,7 @@ window.MapaCentros = (() => {
         marcadores.clear();
   
         mapa = L.map(elementoId, {
-          scrollWheelZoom: false
+          scrollWheelZoom: true
         }).setView([37.3, -4.8], 7);
   
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {

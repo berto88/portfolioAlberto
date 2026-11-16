@@ -1027,17 +1027,16 @@
   }
 }
 
-/* TARJETA DEL MAPA */
+
+/* =========================================
+   TARJETA DEL MAPA
+========================================= */
 
 .map-project-card {
   display: flex;
   flex-direction: column;
   padding: 28px;
-  background: linear-gradient(
-    145deg,
-    #172541,
-    #111a2e
-  );
+  background: linear-gradient(145deg, #172541, #111a2e);
   border: 2px solid rgba(124, 156, 255, .45);
   border-radius: 20px;
   box-shadow:
@@ -1049,40 +1048,8 @@
   margin-top: 0;
 }
 
-.map-preview {
-  width: 100%;
-  height: 350px;
-  margin: 15px 0;
-  overflow: hidden;
-  border: 1px solid rgba(166, 178, 202, .3);
-  border-radius: 12px;
-  background: var(--surface-2);
-}
-
-.map-project-technologies {
-  margin-top: 10px;
-}
-
-.map-project-technologies p {
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-/* MAPA LEAFLET */
-
-.map-preview {
-  width: 100%;
-  height: 400px;
-  margin: 20px 0;
-  overflow: hidden;
-  border: 1px solid rgba(166, 178, 202, .3);
-  border-radius: 12px;
-  background: var(--surface-2);
-  z-index: 1;
-}
-
 /* =========================================
-   MAPA INTERACTIVO
+   CABECERA DEL PROYECTO
 ========================================= */
 
 .map-project-header {
@@ -1095,10 +1062,14 @@
 }
 
 .map-project-header p {
+  max-width: 750px;
   color: var(--muted);
   line-height: 1.7;
-  max-width: 750px;
 }
+
+/* =========================================
+   DISTRIBUCIÓN DEL MAPA
+========================================= */
 
 .map-dashboard {
   display: grid;
@@ -1108,6 +1079,7 @@
 }
 
 .map-sidebar {
+  min-width: 0;
   padding: 20px;
   background: rgba(8, 15, 31, .55);
   border: 1px solid var(--line);
@@ -1118,6 +1090,16 @@
   margin: 0 0 16px;
   font-size: 1rem;
 }
+
+.map-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* =========================================
+   FILTROS
+========================================= */
 
 .map-field {
   margin-bottom: 17px;
@@ -1140,6 +1122,8 @@
   border: 1px solid var(--line);
   border-radius: 8px;
   outline: none;
+  font: inherit;
+  font-size: .88rem;
 }
 
 .map-field input:focus,
@@ -1151,6 +1135,10 @@
   background: var(--surface);
   color: var(--text);
 }
+
+/* =========================================
+   CONTADOR
+========================================= */
 
 .map-results-count {
   display: flex;
@@ -1169,9 +1157,35 @@
   font-size: 1.3rem;
 }
 
+/* =========================================
+   RESULTADOS
+========================================= */
+
 .map-results {
   border-top: 1px solid var(--line);
   padding-top: 17px;
+}
+
+.map-results[hidden] {
+  display: none !important;
+}
+
+#mapResultsList {
+  max-height: 152px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 5px;
+}
+
+/* Scroll de resultados */
+
+#mapResultsList::-webkit-scrollbar {
+  width: 6px;
+}
+
+#mapResultsList::-webkit-scrollbar-thumb {
+  background: rgba(166, 178, 202, .35);
+  border-radius: 10px;
 }
 
 .map-result-item {
@@ -1212,13 +1226,14 @@
   padding: 15px 5px;
 }
 
-.map-content {
-  min-width: 0;
-}
+/* =========================================
+   MAPA LEAFLET
+========================================= */
 
 .map-preview {
   width: 100%;
   height: 500px;
+  min-height: 350px;
   margin: 0;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -1234,16 +1249,41 @@
   text-align: right;
 }
 
+/* =========================================
+   TECNOLOGÍAS
+========================================= */
+
 .map-project-technologies {
-  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px 14px;
+  margin-top: auto;
+  padding-top: 18px;
+  text-align: right;
 }
 
 .map-project-technologies p {
-  margin-bottom: 12px;
+  margin: 0;
+  color: var(--muted);
+  font-size: .78rem;
   font-weight: 600;
 }
 
-/* Marcadores personalizados */
+.map-project-technologies .tags {
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.map-project-technologies .tag {
+  padding: 4px 8px;
+  font-size: .72rem;
+}
+
+/* =========================================
+   MARCADORES PERSONALIZADOS
+========================================= */
 
 .custom-map-icon {
   background: transparent;
@@ -1275,7 +1315,9 @@
   background: #ffbd69;
 }
 
-/* Popups */
+/* =========================================
+   POPUPS DEL MAPA
+========================================= */
 
 .map-popup {
   min-width: 190px;
@@ -1312,42 +1354,69 @@
   text-align: center;
 }
 
-/* Adaptación responsive */
+/* =========================================
+   TABLET
+========================================= */
 
 @media (max-width: 850px) {
   .map-dashboard {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
   }
 
-  .map-preview {
-    height: 420px;
-  }
-
-  .map-results {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
-
-  .map-results h4 {
-    grid-column: 1 / -1;
-  }
-
-  .map-result-item {
-    margin: 0;
-  }
-}
-
-@media (max-width: 520px) {
-  .map-project-card {
+  .map-sidebar {
     padding: 17px;
   }
 
   .map-preview {
-    height: 350px;
+    height: 390px;
   }
 
-  .map-results {
-    grid-template-columns: 1fr;
+  .map-project-technologies {
+    margin-top: 12px;
+  }
+}
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 520px) {
+  .map-project-card {
+    padding: 15px;
+  }
+
+  .map-project-header p {
+    font-size: .9rem;
+  }
+
+  .map-sidebar {
+    padding: 14px;
+  }
+
+  .map-field {
+    margin-bottom: 13px;
+  }
+
+  .map-results-count {
+    margin: 16px 0;
+  }
+
+  .map-preview {
+    height: min(68vh, 360px);
+    min-height: 280px;
+  }
+
+  .map-project-technologies {
+    display: block;
+    text-align: left;
+  }
+
+  .map-project-technologies p {
+    margin-bottom: 8px;
+  }
+
+  .map-project-technologies .tags {
+    justify-content: flex-start;
   }
 }
