@@ -8,8 +8,43 @@
     content="Portfolio personal de Alberto, desarrollador web especializado en Java y tecnologías web.">
   <meta name="theme-color" content="#0b1020">
   <title>Alberto | Desarrollador Web Java</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/main.js" defer></script>
+<!-- Leaflet -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+>
+
+<!-- MarkerCluster -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+>
+
+<!-- Estilos propios -->
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Leaflet y MarkerCluster -->
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  defer
+></script>
+<script
+  src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+  defer
+></script>
+
+<!-- JavaScript del mapa -->
+<script src="js/mapa/kml.js" defer></script>
+<script src="js/mapa/marcadores.js" defer></script>
+<script src="js/mapa/filtros.js" defer></script>
+<script src="js/mapa/mapa.js" defer></script>
+
+<!-- JavaScript principal del portfolio -->
+<script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -378,7 +413,7 @@
 
       <section id="proyectos">
         <div class="container">
-
+    
           <div class="section-heading">
             <span class="eyebrow">PROYECTOS Y DESARROLLO</span>
             <h2 class="section-title">Mis proyectos</h2>
@@ -387,20 +422,18 @@
               y mantenimiento de diferentes aplicaciones y soluciones web.
             </p>
           </div>
-
-          <!-- AVISO DE CONFIDENCIALIDAD -->
+    
           <div class="work-notice">
-
             <div>
               <h3>Confidencialidad y privacidad</h3>
-
+    
               <p>
                 Por políticas de seguridad, privacidad y confidencialidad
                 de las empresas y clientes con los que he trabajado,
                 no me es posible mostrar públicamente los proyectos reales
                 en los que he participado.
               </p>
-
+    
               <p>
                 No obstante, he preparado algunos ejemplos demostrativos
                 inspirados en soluciones y funcionalidades similares
@@ -409,45 +442,88 @@
                 de proyectos originales.
               </p>
             </div>
-
           </div>
-
-          <!-- PROYECTO 1 -->
+    
           <article class="work-card map-project-card">
-
-            <h3>Esto es un mapa interactivo</h3>
-
-            <p>
-              Ejemplo de una aplicación web capaz de interpretar archivos KML
-              y representar información geográfica mediante mapas interactivos,
-              marcadores y agrupaciones de elementos.
-            </p>
-
-            <!-- MAPA -->
-            <div class="map-preview">
-              <!-- Aquí irá el mapa interactivo -->
+            <div class="map-project-header">
+              <div>
+                <span class="eyebrow">DEMO INTERACTIVA</span>
+                <h3>Mapa de centros juveniles</h3>
+                <p>
+                  Aplicación de ejemplo para visualizar centros geográficos,
+                  consultar su información y filtrar los resultados mediante
+                  diferentes criterios.
+                </p>
+              </div>
             </div>
-
-            <!-- TECNOLOGÍAS UTILIZADAS -->
+          
+            <div class="map-dashboard">
+              <aside class="map-sidebar">
+                <h4>Buscar centros</h4>
+          
+                <div class="map-field">
+                  <label for="mapSearch">Nombre o localidad</label>
+                  <input
+                    type="search"
+                    id="mapSearch"
+                    placeholder="Buscar centro..."
+                  >
+                </div>
+          
+                <div class="map-field">
+                  <label for="mapProvince">Provincia</label>
+                  <select id="mapProvince">
+                    <option value="">Todas las provincias</option>
+                  </select>
+                </div>
+          
+                <div class="map-field">
+                  <label for="mapType">Tipo de centro</label>
+                  <select id="mapType">
+                    <option value="">Todos los tipos</option>
+                  </select>
+                </div>
+          
+                <div class="map-results-count">
+                  <span>Centros encontrados</span>
+                  <strong id="mapCounter">0</strong>
+                </div>
+          
+                <div class="map-results">
+                  <h4>Resultados</h4>
+                  <div id="mapResultsList">
+                    <p class="map-empty">Cargando centros...</p>
+                  </div>
+                </div>
+              </aside>
+          
+              <div class="map-content">
+                <div id="mapa-sevilla" class="map-preview"></div>
+                <p class="map-attribution">
+                  Datos geográficos ficticios para demostración.
+                </p>
+              </div>
+            </div>
+          
             <div class="map-project-technologies">
               <p>Tecnologías utilizadas:</p>
-
               <div class="tags">
                 <span class="tag">JavaScript</span>
                 <span class="tag">Leaflet</span>
                 <span class="tag">KML</span>
-                <span class="tag">JSON</span>
+                <span class="tag">XML</span>
+                <span class="tag">GeoJSON</span>
                 <span class="tag">MarkerCluster</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
               </div>
             </div>
           </article>
-
+    
         </div>
+      </section>
+    
     </div>
-    </section>
-
-    </div>
-
     <div id="pagina-objetivos" class="page-view">
       <section id="objetivos">
         <div class="container">

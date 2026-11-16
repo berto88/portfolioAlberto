@@ -1,0 +1,312 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+  <name>Monumentos históricos de Andalucía</name>
+
+  <!-- ==================== ALMERÍA ==================== -->
+
+  <Placemark>
+    <name>Alcazaba de Almería</name>
+    <description>Fortaleza musulmana considerada uno de los conjuntos monumentales más importantes de Almería.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Almería</value></Data>
+      <Data name="provincia"><value>Almería</value></Data>
+      <Data name="tipo"><value>Fortaleza histórica</value></Data>
+      <Data name="direccion"><value>Calle Almanzor</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-2.4679,36.8402,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Catedral de la Encarnación de Almería</name>
+    <description>Catedral fortificada de estilo gótico y renacentista construida en el siglo XVI.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Almería</value></Data>
+      <Data name="provincia"><value>Almería</value></Data>
+      <Data name="tipo"><value>Monumento religioso</value></Data>
+      <Data name="direccion"><value>Plaza de la Catedral</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-2.4674,36.8394,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Castillo de Vélez-Blanco</name>
+    <description>Castillo renacentista construido en el siglo XVI, conocido por su patio de honor.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Vélez-Blanco</value></Data>
+      <Data name="provincia"><value>Almería</value></Data>
+      <Data name="tipo"><value>Castillo histórico</value></Data>
+      <Data name="direccion"><value>Cerro del Castillo</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-2.0950,37.6910,0</coordinates></Point>
+  </Placemark>
+
+  <!-- ==================== CÁDIZ ==================== -->
+
+  <Placemark>
+    <name>Catedral de Cádiz</name>
+    <description>Edificio religioso de estilo barroco y neoclásico situado frente al océano Atlántico.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Cádiz</value></Data>
+      <Data name="provincia"><value>Cádiz</value></Data>
+      <Data name="tipo"><value>Monumento religioso</value></Data>
+      <Data name="direccion"><value>Plaza de la Catedral</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-6.2994,36.5297,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Teatro Romano de Cádiz</name>
+    <description>Yacimiento arqueológico romano descubierto en el barrio del Pópulo.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Cádiz</value></Data>
+      <Data name="provincia"><value>Cádiz</value></Data>
+      <Data name="tipo"><value>Yacimiento arqueológico</value></Data>
+      <Data name="direccion"><value>Calle Mesón</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-6.3007,36.5297,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Castillo de Santa Catalina</name>
+    <description>Fortificación defensiva del siglo XVII situada junto a la playa de La Caleta.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Cádiz</value></Data>
+      <Data name="provincia"><value>Cádiz</value></Data>
+      <Data name="tipo"><value>Fortaleza histórica</value></Data>
+      <Data name="direccion"><value>Calle Antonio Burgos</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-6.3078,36.5283,0</coordinates></Point>
+  </Placemark>
+
+  <!-- ==================== CÓRDOBA ==================== -->
+
+  <Placemark>
+    <name>Mezquita-Catedral de Córdoba</name>
+    <description>Monumento Patrimonio Mundial que combina la arquitectura islámica y cristiana.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Córdoba</value></Data>
+      <Data name="provincia"><value>Córdoba</value></Data>
+      <Data name="tipo"><value>Monumento religioso</value></Data>
+      <Data name="direccion"><value>Calle Cardenal Herrero</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-4.7794,37.8791,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Alcázar de los Reyes Cristianos</name>
+    <description>Fortaleza y palacio histórico que fue residencia de los Reyes Católicos.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Córdoba</value></Data>
+      <Data name="provincia"><value>Córdoba</value></Data>
+      <Data name="tipo"><value>Palacio histórico</value></Data>
+      <Data name="direccion"><value>Plaza Campo Santo de los Mártires</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-4.7828,37.8751,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Conjunto Arqueológico de Medina Azahara</name>
+    <description>Ciudad palatina califal del siglo X situada a las afueras de Córdoba.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Córdoba</value></Data>
+      <Data name="provincia"><value>Córdoba</value></Data>
+      <Data name="tipo"><value>Yacimiento arqueológico</value></Data>
+      <Data name="direccion"><value>Carretera de Palma del Río, km 5,5</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-4.8670,37.8880,0</coordinates></Point>
+  </Placemark>
+
+  <!-- ==================== GRANADA ==================== -->
+
+  <Placemark>
+    <name>La Alhambra</name>
+    <description>Conjunto monumental nazarí formado por palacios, jardines y fortificaciones.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Granada</value></Data>
+      <Data name="provincia"><value>Granada</value></Data>
+      <Data name="tipo"><value>Conjunto palaciego</value></Data>
+      <Data name="direccion"><value>Calle Real de la Alhambra</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-3.5881,37.1761,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Catedral de Granada</name>
+    <description>Templo renacentista cuya construcción comenzó en el siglo XVI.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Granada</value></Data>
+      <Data name="provincia"><value>Granada</value></Data>
+      <Data name="tipo"><value>Monumento religioso</value></Data>
+      <Data name="direccion"><value>Gran Vía de Colón</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-3.5993,37.1769,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Capilla Real de Granada</name>
+    <description>Edificio gótico que alberga los sepulcros de los Reyes Católicos.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Granada</value></Data>
+      <Data name="provincia"><value>Granada</value></Data>
+      <Data name="tipo"><value>Monumento religioso</value></Data>
+      <Data name="direccion"><value>Calle Oficios</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-3.5984,37.1765,0</coordinates></Point>
+  </Placemark>
+
+  <!-- ==================== HUELVA ==================== -->
+
+  <Placemark>
+    <name>Monasterio de La Rábida</name>
+    <description>Monasterio franciscano relacionado con los preparativos del viaje de Cristóbal Colón.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Palos de la Frontera</value></Data>
+      <Data name="provincia"><value>Huelva</value></Data>
+      <Data name="tipo"><value>Monasterio histórico</value></Data>
+      <Data name="direccion"><value>La Rábida</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-6.9125,37.2083,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Muelle del Tinto</name>
+    <description>Antiguo muelle de mineral de hierro, uno de los elementos más representativos del patrimonio industrial de Huelva.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Huelva</value></Data>
+      <Data name="provincia"><value>Huelva</value></Data>
+      <Data name="tipo"><value>Monumento industrial</value></Data>
+      <Data name="direccion"><value>Avenida Francisco Montenegro</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-6.9505,37.2520,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Castillo de Niebla</name>
+    <description>Fortaleza medieval que conserva importantes elementos de su muralla y estructura defensiva.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Niebla</value></Data>
+      <Data name="provincia"><value>Huelva</value></Data>
+      <Data name="tipo"><value>Castillo histórico</value></Data>
+      <Data name="direccion"><value>Recinto amurallado de Niebla</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-6.6800,37.3630,0</coordinates></Point>
+  </Placemark>
+
+  <!-- ==================== JAÉN ==================== -->
+
+  <Placemark>
+    <name>Catedral de Jaén</name>
+    <description>Monumento renacentista dedicado a la Asunción de la Virgen, obra destacada de Andrés de Vandelvira.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Jaén</value></Data>
+      <Data name="provincia"><value>Jaén</value></Data>
+      <Data name="tipo"><value>Monumento religioso</value></Data>
+      <Data name="direccion"><value>Plaza de Santa María</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-3.7887,37.7655,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Castillo de Santa Catalina</name>
+    <description>Fortaleza medieval situada sobre el cerro que domina la ciudad de Jaén.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Jaén</value></Data>
+      <Data name="provincia"><value>Jaén</value></Data>
+      <Data name="tipo"><value>Castillo histórico</value></Data>
+      <Data name="direccion"><value>Cerro de Santa Catalina</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-3.7780,37.7710,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Baños Árabes de Jaén</name>
+    <description>Conjunto de baños islámicos del siglo XI conservados bajo el Palacio de Villardompardo.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Jaén</value></Data>
+      <Data name="provincia"><value>Jaén</value></Data>
+      <Data name="tipo"><value>Monumento histórico</value></Data>
+      <Data name="direccion"><value>Plaza de Santa Luisa de Marillac</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-3.7905,37.7670,0</coordinates></Point>
+  </Placemark>
+
+  <!-- ==================== MÁLAGA ==================== -->
+
+  <Placemark>
+    <name>Alcazaba de Málaga</name>
+    <description>Fortaleza palaciega musulmana situada a los pies del monte Gibralfaro.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Málaga</value></Data>
+      <Data name="provincia"><value>Málaga</value></Data>
+      <Data name="tipo"><value>Fortaleza histórica</value></Data>
+      <Data name="direccion"><value>Calle Alcazabilla</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-4.4156,36.7213,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Teatro Romano de Málaga</name>
+    <description>Yacimiento arqueológico de época romana situado junto a la Alcazaba.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Málaga</value></Data>
+      <Data name="provincia"><value>Málaga</value></Data>
+      <Data name="tipo"><value>Yacimiento arqueológico</value></Data>
+      <Data name="direccion"><value>Calle Alcazabilla</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-4.4160,36.7217,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Catedral de Málaga</name>
+    <description>Templo renacentista conocido popularmente como La Manquita.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Málaga</value></Data>
+      <Data name="provincia"><value>Málaga</value></Data>
+      <Data name="tipo"><value>Monumento religioso</value></Data>
+      <Data name="direccion"><value>Calle Molina Lario</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-4.4200,36.7203,0</coordinates></Point>
+  </Placemark>
+
+  <!-- ==================== SEVILLA ==================== -->
+
+  <Placemark>
+    <name>Real Alcázar de Sevilla</name>
+    <description>Conjunto palaciego de origen medieval, conocido por su arquitectura mudéjar y sus jardines históricos.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Sevilla</value></Data>
+      <Data name="provincia"><value>Sevilla</value></Data>
+      <Data name="tipo"><value>Palacio histórico</value></Data>
+      <Data name="direccion"><value>Patio de Banderas</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-5.9903,37.3839,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Catedral de Sevilla y Giralda</name>
+    <description>Gran conjunto monumental gótico que integra la emblemática torre de la Giralda.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Sevilla</value></Data>
+      <Data name="provincia"><value>Sevilla</value></Data>
+      <Data name="tipo"><value>Monumento religioso</value></Data>
+      <Data name="direccion"><value>Avenida de la Constitución</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-5.9930,37.3861,0</coordinates></Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Plaza de España</name>
+    <description>Conjunto arquitectónico regionalista construido para la Exposición Iberoamericana de 1929.</description>
+    <ExtendedData>
+      <Data name="localidad"><value>Sevilla</value></Data>
+      <Data name="provincia"><value>Sevilla</value></Data>
+      <Data name="tipo"><value>Conjunto monumental</value></Data>
+      <Data name="direccion"><value>Avenida de Isabel la Católica</value></Data>
+    </ExtendedData>
+    <Point><coordinates>-5.9869,37.3772,0</coordinates></Point>
+  </Placemark>
+
+</Document>
+</kml>
