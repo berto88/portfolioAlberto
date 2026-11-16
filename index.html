@@ -17,11 +17,15 @@
 
   <!-- Estilos propios -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/tema-claro.css">
 
   <!-- Leaflet y MarkerCluster -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="js/traducciones.js" defer></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" defer></script>
+
+  <!-- Traduccion y Temas -->
+  <script src="js/traducciones.js" defer></script>
+  <script src="js/tema.js" defer></script>
 
   <!-- JavaScript del mapa -->
   <script src="js/mapa/kml.js" defer></script>
@@ -54,6 +58,13 @@
 
         <button id="languageButton" class="language-button" type="button">
           EN
+        </button>
+        <button id="themeButton"
+          class="theme-button"
+          type="button"
+          aria-label="Cambiar a tema claro"
+          title="Cambiar a tema claro">
+            ☀
         </button>
       </div>
     </nav>

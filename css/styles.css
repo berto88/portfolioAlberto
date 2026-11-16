@@ -1577,3 +1577,456 @@
   background: var(--accent);
   color: white;
 }
+
+
+/* ==========================================================
+   TEMA CLARO · MARRONES Y CREMAS
+   Se activa con <html data-theme="light">
+   Cargar después de styles.css
+   ========================================================== */
+
+
+/* ==========================================================
+   1. PALETA DE COLORES
+   ========================================================== */
+
+   :root[data-theme="light"] {
+    color-scheme: light;
+  
+    --t-bg: #f6efe3;
+    --t-bg-soft: #efe4d2;
+    --t-surface: #fffaf1;
+    --t-surface-2: #f9f0e1;
+    --t-border: #e0d0b8;
+  
+    --t-heading: #3b2a20;
+    --t-text: #4a382d;
+    --t-muted: #7a6455;
+  
+    --t-accent: #8b5a2b;
+    --t-accent-hover: #6f4520;
+    --t-on-accent: #fffaf1;
+  
+    --t-shadow: 0 10px 30px rgba(92, 64, 40, .12);
+  
+    /* Equivalencias con styles.css */
+    --bg: var(--t-bg);
+    --surface: var(--t-surface);
+    --surface-2: var(--t-surface-2);
+    --text: var(--t-text);
+    --muted: var(--t-muted);
+    --line: var(--t-border);
+    --accent: var(--t-accent);
+    --accent-2: #9a7048;
+  }
+  
+  
+  /* ==========================================================
+     2. ESTILOS GENERALES
+     ========================================================== */
+  
+  :root[data-theme="light"] body {
+    background: var(--t-bg);
+    background-image: none;
+    color: var(--t-text);
+  }
+  
+  :root[data-theme="light"] h1,
+  :root[data-theme="light"] h2,
+  :root[data-theme="light"] h3,
+  :root[data-theme="light"] h4,
+  :root[data-theme="light"] strong {
+    color: var(--t-heading);
+  }
+  
+  :root[data-theme="light"] p,
+  :root[data-theme="light"] li {
+    color: var(--t-text);
+  }
+  
+  :root[data-theme="light"] .hero-copy,
+  :root[data-theme="light"] .section-intro,
+  :root[data-theme="light"] small,
+  :root[data-theme="light"] .date,
+  :root[data-theme="light"] .popup-label,
+  :root[data-theme="light"] .map-attribution,
+  :root[data-theme="light"] .job-company,
+  :root[data-theme="light"] .map-empty,
+  :root[data-theme="light"] footer {
+    color: var(--t-muted);
+  }
+  
+  :root[data-theme="light"] h1 span,
+  :root[data-theme="light"] .eyebrow,
+  :root[data-theme="light"] .brand span,
+  :root[data-theme="light"] .goal-number,
+  :root[data-theme="light"] .job-date,
+  :root[data-theme="light"] .job-number,
+  :root[data-theme="light"] .principle-icon {
+    color: var(--t-accent);
+  }
+  
+  :root[data-theme="light"] a {
+    color: var(--t-accent);
+  }
+  
+  
+  /* ==========================================================
+     3. NAVEGACIÓN
+     ========================================================== */
+  
+  :root[data-theme="light"] .topbar {
+    background: rgba(246, 239, 227, .92);
+    border-bottom: 1px solid var(--t-border);
+  }
+  
+  :root[data-theme="light"] .brand {
+    color: var(--t-heading);
+  }
+  
+  :root[data-theme="light"] .nav-links {
+    background: var(--t-surface);
+  }
+  
+  :root[data-theme="light"] .nav-links a {
+    color: var(--t-muted);
+  }
+  
+  :root[data-theme="light"] .nav-links a:hover,
+  :root[data-theme="light"] .nav-links a:focus-visible,
+  :root[data-theme="light"] .nav-links a.active {
+    color: var(--t-accent);
+  }
+  
+  :root[data-theme="light"] .menu-button {
+    background: var(--t-surface);
+    color: var(--t-accent);
+    border-color: var(--t-border);
+  }
+  
+  
+  /* ==========================================================
+     4. TARJETAS Y PANELES
+     ========================================================== */
+  
+  :root[data-theme="light"] .panel,
+  :root[data-theme="light"] .skill-card,
+  :root[data-theme="light"] .goal,
+  :root[data-theme="light"] .profile-card,
+  :root[data-theme="light"] .work-notice,
+  :root[data-theme="light"] .work-card,
+  :root[data-theme="light"] .contact-box,
+  :root[data-theme="light"] .job-card,
+  :root[data-theme="light"] .modal-extra,
+  :root[data-theme="light"] .philosophy,
+  :root[data-theme="light"] .map-project-card,
+  :root[data-theme="light"] .map-sidebar,
+  :root[data-theme="light"] .email-popup {
+    background: var(--t-surface);
+    background-image: none;
+    border-color: var(--t-border);
+    box-shadow: var(--t-shadow);
+    color: var(--t-text);
+  }
+  
+  :root[data-theme="light"] .philosophy-decoration span {
+    color: var(--t-accent);
+  }
+  
+  :root[data-theme="light"] .philosophy-content p {
+    color: var(--t-muted);
+  }
+  
+  :root[data-theme="light"] .philosophy-signature {
+    color: var(--t-accent);
+  }
+  
+  
+  /* ==========================================================
+     5. ETIQUETAS Y TECNOLOGÍAS
+     ========================================================== */
+  
+  :root[data-theme="light"] .tag,
+  :root[data-theme="light"] .job-tags span {
+    background: var(--t-surface-2);
+    border: 1px solid var(--t-border);
+    color: var(--t-accent-hover);
+  }
+  
+  :root[data-theme="light"] .map-project-technologies .tag:hover {
+    background: var(--t-bg-soft);
+    border-color: var(--t-accent);
+  }
+  
+  
+  /* ==========================================================
+     6. BOTONES
+     ========================================================== */
+  
+  :root[data-theme="light"] .button.primary {
+    background: var(--t-accent);
+    background-image: none;
+    border-color: var(--t-accent);
+    color: var(--t-on-accent);
+  }
+  
+  :root[data-theme="light"] .button.primary:hover {
+    background: var(--t-accent-hover);
+    color: var(--t-on-accent);
+  }
+  
+  :root[data-theme="light"] .button.secondary,
+  :root[data-theme="light"] .language-button,
+  :root[data-theme="light"] .theme-button {
+    background: var(--t-surface);
+    border: 1px solid var(--t-border);
+    color: var(--t-accent);
+  }
+  
+  :root[data-theme="light"] .button.secondary:hover,
+  :root[data-theme="light"] .language-button:hover,
+  :root[data-theme="light"] .theme-button:hover {
+    background: var(--t-accent);
+    border-color: var(--t-accent);
+    color: var(--t-on-accent);
+  }
+  
+  :root[data-theme="light"] #copyEmail {
+    background: var(--t-accent);
+    color: var(--t-on-accent);
+  }
+  
+  
+  /* ==========================================================
+     7. BOTÓN DE CAMBIO DE TEMA
+     ========================================================== */
+  
+  .theme-button {
+    width: 40px;
+    height: 40px;
+  
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  
+    background: var(--surface-2);
+    color: var(--accent);
+  
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  
+    transition:
+      background .25s ease,
+      color .25s ease,
+      border-color .25s ease,
+      transform .25s ease;
+  }
+  
+  .theme-button:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+  
+  .theme-button:active {
+    transform: scale(.94);
+  }
+  
+  
+  /* ==========================================================
+     8. FORMULARIOS DEL MAPA
+     ========================================================== */
+  
+  :root[data-theme="light"] .map-field input,
+  :root[data-theme="light"] .map-field select {
+    background: var(--t-surface-2);
+    border: 1px solid var(--t-border);
+    color: var(--t-text);
+  }
+  
+  :root[data-theme="light"] .map-field input::placeholder {
+    color: var(--t-muted);
+  }
+  
+  :root[data-theme="light"] .map-field label {
+    color: var(--t-muted);
+  }
+  
+  :root[data-theme="light"] .map-field select option {
+    background: var(--t-surface);
+    color: var(--t-text);
+  }
+  
+  :root[data-theme="light"] .map-results-count {
+    background: var(--t-bg-soft);
+    color: var(--t-muted);
+  }
+  
+  :root[data-theme="light"] .map-results-count strong {
+    color: var(--t-accent);
+  }
+  
+  :root[data-theme="light"] .map-result-item {
+    background: var(--t-surface-2);
+    color: var(--t-text);
+    border-color: var(--t-border);
+  }
+  
+  :root[data-theme="light"] .map-result-item:hover {
+    background: var(--t-bg-soft);
+    border-color: var(--t-accent);
+  }
+  
+  :root[data-theme="light"] .map-result-item strong {
+    color: var(--t-heading);
+  }
+  
+  :root[data-theme="light"] .map-result-item span {
+    color: var(--t-muted);
+  }
+  
+  
+  /* ==========================================================
+     9. POPUPS INFORMATIVOS DE TECNOLOGÍAS
+     ========================================================== */
+  
+  :root[data-theme="light"] .map-project-technologies .tag::after {
+    background: var(--t-heading);
+    border-color: var(--t-border);
+    color: var(--t-surface);
+  }
+  
+  :root[data-theme="light"] .map-project-technologies .tag::before {
+    background: var(--t-heading);
+    border-color: var(--t-border);
+  }
+  
+  
+  /* ==========================================================
+     10. MODAL DE EXPERIENCIA
+     ========================================================== */
+  
+  :root[data-theme="light"] .experience-modal {
+    background: var(--t-bg);
+    color: var(--t-text);
+    border: 1px solid var(--t-border);
+  }
+  
+  :root[data-theme="light"] .experience-modal::backdrop {
+    background: rgba(59, 42, 32, .55);
+  }
+  
+  :root[data-theme="light"] .modal-header,
+  :root[data-theme="light"] .modal-footer {
+    background: var(--t-surface);
+    border-color: var(--t-border);
+  }
+  
+  :root[data-theme="light"] .modal-header p,
+  :root[data-theme="light"] .modal-footer span {
+    color: var(--t-muted);
+  }
+  
+  :root[data-theme="light"] .modal-close {
+    background: var(--t-surface-2);
+    color: var(--t-heading);
+    border-color: var(--t-border);
+  }
+  
+  :root[data-theme="light"] .modal-close:hover {
+    background: var(--t-bg-soft);
+    color: var(--t-accent);
+  }
+  
+  
+  /* ==========================================================
+     11. POPUP DE CONTACTO
+     ========================================================== */
+  
+  :root[data-theme="light"] .email-address {
+    color: var(--t-heading);
+  }
+  
+  :root[data-theme="light"] .email-copy button {
+    background: var(--t-surface-2);
+    border-color: var(--t-border);
+    color: var(--t-accent);
+  }
+  
+  :root[data-theme="light"] .email-copy button:hover {
+    background: var(--t-accent);
+    color: var(--t-on-accent);
+  }
+  
+  
+  /* ==========================================================
+     12. FOOTER
+     ========================================================== */
+  
+  :root[data-theme="light"] footer {
+    background: var(--t-bg-soft);
+    border-top: 1px solid var(--t-border);
+    color: var(--t-muted);
+  }
+  
+  
+  /* ==========================================================
+     13. TRANSICIONES ENTRE TEMAS
+     ========================================================== */
+  
+  body,
+  .topbar,
+  .panel,
+  .skill-card,
+  .goal,
+  .profile-card,
+  .contact-box,
+  .job-card,
+  .modal-extra,
+  .philosophy,
+  .map-project-card,
+  .map-sidebar,
+  .map-result-item,
+  .email-popup,
+  .tag,
+  .theme-button,
+  .language-button {
+    transition:
+      background-color .25s ease,
+      color .25s ease,
+      border-color .25s ease,
+      box-shadow .25s ease;
+  }
+  
+  
+  /* ==========================================================
+     14. ACCESIBILIDAD
+     ========================================================== */
+  
+  @media (prefers-reduced-motion: reduce) {
+    body,
+    .topbar,
+    .panel,
+    .skill-card,
+    .goal,
+    .profile-card,
+    .contact-box,
+    .job-card,
+    .modal-extra,
+    .philosophy,
+    .map-project-card,
+    .map-sidebar,
+    .map-result-item,
+    .email-popup,
+    .tag,
+    .theme-button,
+    .language-button {
+      transition: none;
+    }
+  }
+  
+  
