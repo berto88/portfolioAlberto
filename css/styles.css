@@ -235,6 +235,80 @@ footer .container { display: flex; justify-content: space-between; gap: 15px; fl
 :focus-visible { outline: 2px solid var(--accent-2); outline-offset: 4px; }
 
 /* =========================
+   DISEÑO POPUP
+   ========================= */
+
+/* Contenedor del botón y popup */
+.contact-action {
+  position: relative;
+  display: inline-block;
+}
+
+/* Popup del correo */
+.email-popup {
+  position: absolute;
+  bottom: calc(100% + 15px);
+  right: 0;
+  width: 270px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+/* Mostrar popup al pasar el ratón o enfocar con teclado */
+.contact-action:hover .email-popup,
+.contact-action:focus-within .email-popup {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.popup-label {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.email-copy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.email-copy > span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  overflow-wrap: anywhere;
+}
+
+.email-copy button {
+  border: none;
+  border-radius: 7px;
+  padding: 7px 10px;
+  background: #eee;
+  color: #222;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.email-copy button:hover {
+  background: #ddd;
+}
+
+/* =========================
    DISEÑO RESPONSIVE
    ========================= */
 @media (max-width: 800px) {
