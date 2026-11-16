@@ -2028,5 +2028,27 @@
       transition: none;
     }
   }
+
+  /* Escritorio: menú integrado en la cabecera */
+.nav-links {
+  background: transparent;
+}
+
+/* Tema claro */
+:root[data-theme="light"] .nav-links {
+  background: transparent;
+}
+
+/* Móvil: menú desplegable */
+@media (max-width: 620px) {
+  .nav-links {
+    background: var(--surface);
+  }
+
+  :root[data-theme="light"] .nav-links {
+    background: var(--t-surface);
+    border-bottom: 1px solid var(--t-border);
+  }
+}
   
   
