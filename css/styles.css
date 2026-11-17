@@ -2322,3 +2322,137 @@
   }
 
 }
+
+.mailbox-file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.mailbox-file-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  min-width: 0;
+}
+
+.mailbox-file-item > i {
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+
+.mailbox-file-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+  gap: 3px;
+}
+
+.mailbox-file-details strong {
+  font-size: .85rem;
+  overflow-wrap: anywhere;
+}
+
+.mailbox-file-details small,
+.mailbox-empty {
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+.mailbox-file-remove {
+  border: none;
+  background: transparent;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 7px;
+  font-size: 1rem;
+}
+
+.mailbox-file-remove:hover {
+  opacity: .7;
+}
+/* ==========================================
+   BUZÓN EN MODAL
+   ========================================== */
+
+   .mailbox-cta {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .mailbox-modal {
+    max-width: 680px;
+  }
+  
+  /* El formulario ya no necesita su propia "tarjeta" dentro del modal */
+  .mailbox-modal .mailbox-form {
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+  
+  .mailbox-modal .modal-content {
+    max-height: calc(85vh - 110px);
+  }
+  
+  .mailbox-modal .mailbox-field input,
+  .mailbox-modal .mailbox-field select,
+  .mailbox-modal .mailbox-field textarea,
+  .mailbox-modal .mailbox-upload {
+    background: var(--surface-2);
+  }
+  
+  /* Aviso de éxito */
+  .mailbox-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    transform: translate(-50%, 20px);
+    padding: 14px 20px;
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--accent-2);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .3);
+    font-size: .9rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+    z-index: 2000;
+  }
+  
+  .mailbox-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+  }
+  
+  .mailbox-toast.error {
+    border-color: #ef4444;
+  }
+  
+  /* Modal del buzón: el contenido ocupa el espacio restante y hace scroll */
+.mailbox-modal[open] {
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+}
+
+.mailbox-modal .modal-header {
+  flex: 0 0 auto;
+}
+
+.mailbox-modal .modal-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none;
+  overflow-y: auto;
+  padding-bottom: 30px;
+}

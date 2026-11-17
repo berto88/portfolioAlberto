@@ -1,48 +1,191 @@
-const fileInfo = document.getElementById("mailboxFileInfo");
+document.addEventListener("DOMContentLoaded", () => {
 
-const MAX_FILE_SIZE = 5 * 1024 * 1024;
-const MAX_TOTAL_SIZE = 10 * 1024 * 1024;
-
-const ALLOWED_EXTENSIONS = [
-  "pdf", "png", "jpg", "jpeg",
-  "webp", "doc", "docx", "txt", "zip"
-];
-
-fileInput.addEventListener("change", () => {
-
-  const files = Array.from(fileInput.files);
-
-  if (files.length === 0) {
-    fileInfo.textContent = "Ningún archivo seleccionado";
-    return;
-  }
-
-  const totalSize = files.reduce(
-    (total, file) => total + file.size, 0
-  );
-
-  const invalidFile = files.find(file => {
-    const extension = file.name.split(".").pop().toLowerCase();
-
-    return !ALLOWED_EXTENSIONS.includes(extension) ||
-           file.size > MAX_FILE_SIZE;
+    /* ---------- Configuración ---------- */
+    const ENDPOINT = "https://formsubmit.co/ajax/bertotorre88@gmail.com";
+    const MAX_FILES = 5;
+    const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB por archivo
+  
+    /* ---------- Elementos ---------- */
+    const modal = document.getElementById("mailboxModal");
+    const openBtn = document.getElementById("openMailbox");
+    const closeBtn = document.getElementById("closeMailbox");
+    const form = document.getElementById("mailboxForm");
+    const submitBtn = document.getElementById("mailboxSubmit");
+    const result = document.getElementById("mailboxResult");
+    const toast = document.getElementById("mailboxToast");
+    const message = document.getElementById("mailboxMessage");
+    const charCount = document.getElementById("mailboxCharCount");
+    const emailInput = document.getElementById("mailboxEmail");
+    const replyTo = document.getElementById("mailboxReplyTo");
+    const fileInput = document.getElementById("mailboxFile");
+    const fileInfo = document.getElementById("mailboxFileInfo");
+  
+    if (!modal || !form) return;
+  
+    let selectedFiles = [];
+  
+    /* ---------- Abrir / cerrar modal ---------- */
+    openBtn.addEventListener("click", () => modal.showModal());
+    closeBtn.addEventListener("click", () => modal.close());
+  
+    // Cerrar al pulsar fuera del modal
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.close();
+    });
+  
+    /* ---------- Contador de caracteres ---------- */
+    message.addEventListener("input", () => {
+      charCount.textContent = message.value.length;
+    });
+  
+    /* ---------- Archivos ---------- */
+    fileInput.addEventListener("change", () => {
+      const errors = [];
+  
+      Array.from(fileInput.files).forEach((file) => {
+        const exists = selectedFiles.some(
+          (f) =>
+            f.name === file.name &&
+            f.size === file.size &&
+            f.lastModified === file.lastModified
+        );
+        if (exists) return;
+  
+        if (file.size > MAX_FILE_SIZE) {
+          errors.push(`"${file.name}" supera los 5 MB.`);
+          return;
+        }
+        if (selectedFiles.length >= MAX_FILES) {
+          errors.push(`Máximo ${MAX_FILES} archivos.`);
+          return;
+        }
+        selectedFiles.push(file);
+      });
+  
+      syncInput();
+      renderFiles();
+  
+      if (errors.length) showResult("error", [...new Set(errors)].join(" "));
+      else hideResult();
+    });
+  
+    function syncInput() {
+      const dt = new DataTransfer();
+      selectedFiles.forEach((f) => dt.items.add(f));
+      fileInput.files = dt.files;
+    }
+  
+    function renderFiles() {
+      fileInfo.innerHTML = "";
+  
+      if (selectedFiles.length === 0) {
+        const empty = document.createElement("span");
+        empty.className = "mailbox-empty";
+        empty.textContent = "Ningún archivo seleccionado";
+        fileInfo.appendChild(empty);
+        return;
+      }
+  
+      selectedFiles.forEach((file, index) => {
+        const item = document.createElement("div");
+        item.className = "mailbox-file-item";
+  
+        const icon = document.createElement("i");
+        icon.className = "fas fa-file-alt";
+  
+        const details = document.createElement("div");
+        details.className = "mailbox-file-details";
+  
+        const name = document.createElement("strong");
+        name.textContent = file.name;
+  
+        const size = document.createElement("small");
+        size.textContent = (file.size / (1024 * 1024)).toFixed(2) + " MB";
+  
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "mailbox-file-remove";
+        remove.innerHTML = '<i class="fas fa-times"></i>';
+        remove.setAttribute("aria-label", "Eliminar " + file.name);
+        remove.addEventListener("click", () => {
+          selectedFiles.splice(index, 1);
+          syncInput();
+          renderFiles();
+        });
+  
+        details.append(name, size);
+        item.append(icon, details, remove);
+        fileInfo.appendChild(item);
+      });
+    }
+  
+    /* ---------- Mensajes ---------- */
+    function showResult(type, text) {
+      result.className = "mailbox-result " + type;
+      result.textContent = text;
+    }
+  
+    function hideResult() {
+      result.className = "mailbox-result";
+      result.textContent = "";
+    }
+  
+    let toastTimer;
+    function showToast(text, isError = false) {
+      toast.textContent = text;
+      toast.classList.toggle("error", isError);
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 4500);
+    }
+  
+    /* ---------- Envío ---------- */
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      hideResult();
+  
+      if (replyTo) replyTo.value = emailInput.value;
+  
+      const formData = new FormData(form);
+      // Reemplazar el campo de archivos por los seleccionados
+      formData.delete("attachment");
+      selectedFiles.forEach((file) =>
+        formData.append("attachment", file, file.name)
+      );
+  
+      const buttonText = submitBtn.querySelector(".mailbox-button-text");
+      const originalText = buttonText.textContent;
+      submitBtn.disabled = true;
+      buttonText.textContent = "Enviando...";
+  
+      try {
+        const response = await fetch(ENDPOINT, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+  
+        const data = await response.json().catch(() => ({}));
+        console.log("Respuesta FormSubmit:", response.status, data);
+  
+        if (response.ok && String(data.success) !== "false") {
+          modal.close();
+          form.reset();
+          selectedFiles = [];
+          syncInput();
+          renderFiles();
+          charCount.textContent = "0";
+          showToast("✓ Mensaje enviado correctamente. ¡Gracias!");
+        } else {
+          throw new Error(data.message || "Error " + response.status);
+        }
+      } catch (err) {
+        console.error(err);
+        showResult("error", "No se pudo enviar: " + err.message);
+      } finally {
+        submitBtn.disabled = false;
+        buttonText.textContent = originalText;
+      }
+    });
+  
   });
-
-  if (invalidFile || totalSize > MAX_TOTAL_SIZE) {
-
-    alert(
-      invalidFile
-        ? "Archivo no permitido o superior a 5 MB."
-        : "El conjunto de archivos supera los 10 MB."
-    );
-
-    fileInput.value = "";
-    fileInfo.textContent = "Ningún archivo seleccionado";
-    return;
-  }
-
-  fileInfo.textContent = files
-    .map(file => `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`)
-    .join(" · ");
-
-});
