@@ -25,6 +25,7 @@
   <!-- Traduccion y Temas -->
   <script src="js/traducciones.js" defer></script>
   <script src="js/tema.js" defer></script>
+  <script src="assets/js/mailbox.js" defer></script>
 
   <!-- JavaScript del mapa -->
   <script src="js/mapa/kml.js" defer></script>
@@ -655,10 +656,198 @@
                   </button>
                 </div>
 
+
                 <span id="copyFeedback" class="copy-feedback" aria-live="polite"></span>
               </div>
             </div>
           </div>
+
+          <section id="buzon" class="mailbox-section">
+
+            <div class="mailbox-container">
+          
+              <div class="mailbox-header">
+                <span class="mailbox-eyebrow">CONTACTO</span>
+          
+                <h2>Buzón de sugerencias</h2>
+          
+                <p>
+                  ¿Tienes alguna sugerencia, propuesta o información
+                  que quieras compartir conmigo? Este es tu espacio.
+                </p>
+              </div>
+          
+              <form id="mailboxForm" class="mailbox-form">
+          
+                <!-- Configuración Web3Forms -->
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="TU_ACCESS_KEY"
+                >
+          
+                <input
+                  type="hidden"
+                  name="subject"
+                  value="Nuevo mensaje desde mi portfolio"
+                >
+          
+                <input
+                  type="hidden"
+                  name="from_name"
+                  value="Buzón de sugerencias - Portfolio"
+                >
+          
+                <input type="hidden" name="replyto" id="mailboxReplyTo">
+          
+                <!-- Protección antispam -->
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  class="mailbox-hidden"
+                  tabindex="-1"
+                  autocomplete="off"
+                >
+          
+                <div class="mailbox-grid">
+          
+                  <div class="mailbox-field">
+                    <label for="mailboxName">Nombre</label>
+                    <input
+                      type="text"
+                      id="mailboxName"
+                      name="name"
+                      placeholder="Tu nombre"
+                      maxlength="80"
+                      required
+                    >
+                  </div>
+          
+                  <div class="mailbox-field">
+                    <label for="mailboxEmail">Correo electrónico</label>
+                    <input
+                      type="email"
+                      id="mailboxEmail"
+                      name="email"
+                      placeholder="correo@ejemplo.com"
+                      maxlength="150"
+                      required
+                    >
+                  </div>
+          
+                </div>
+          
+                <div class="mailbox-field">
+                  <label for="mailboxCategory">Categoría</label>
+          
+                  <select id="mailboxCategory" name="category" required>
+                    <option value="" disabled selected>
+                      Selecciona una categoría
+                    </option>
+                    <option value="Sugerencia">Sugerencia</option>
+                    <option value="Propuesta de proyecto">
+                      Propuesta de proyecto
+                    </option>
+                    <option value="Colaboración">Colaboración</option>
+                    <option value="Reporte de error">Reporte de error</option>
+                    <option value="Información">Información</option>
+                    <option value="Otro">Otro</option>
+                  </select>
+                </div>
+          
+                <div class="mailbox-field">
+                  <label for="mailboxSubject">Asunto</label>
+                  <input
+                    type="text"
+                    id="mailboxSubject"
+                    name="message_subject"
+                    placeholder="¿De qué trata tu mensaje?"
+                    maxlength="120"
+                    required
+                  >
+                </div>
+          
+                <div class="mailbox-field">
+                  <label for="mailboxMessage">Mensaje</label>
+                  <textarea
+                    id="mailboxMessage"
+                    name="message"
+                    rows="6"
+                    maxlength="3000"
+                    placeholder="Escribe aquí tu sugerencia o información..."
+                    required
+                  ></textarea>
+          
+                  <span class="mailbox-counter">
+                    <span id="mailboxCharCount">0</span>/3000
+                  </span>
+                </div>
+          
+                <!-- Adjuntar archivo -->
+                <div class="mailbox-field">
+                  <label for="mailboxFile">Archivo adjunto (opcional)</label>
+          
+                  <label for="mailboxFile" class="mailbox-upload">
+                    <span class="mailbox-upload-icon">
+                      <i class="fas fa-cloud-upload-alt"></i>
+                    </span>
+          
+                    <span class="mailbox-upload-text">
+                      <strong>Seleccionar archivo</strong>
+                      <small>PDF, imágenes, documentos o ZIP</small>
+                    </span>
+                  </label>
+          
+                  <input
+                    type="file"
+                    id="mailboxFile"
+                    name="attachment"
+                    class="mailbox-file-input"
+                    accept=".pdf,.png,.jpg,.jpeg,.webp,.doc,.docx,.txt,.zip"
+                  >
+          
+                  <div id="mailboxFileInfo" class="mailbox-file-info">
+                    Ningún archivo seleccionado
+                  </div>
+          
+                  <small class="mailbox-help">
+                    Tamaño máximo: 5 MB. Un único archivo.
+                  </small>
+                </div>
+          
+                <!-- Privacidad -->
+                <div class="mailbox-privacy">
+                  <i class="fas fa-shield-alt"></i>
+                  <span>
+                    Tus datos se utilizarán exclusivamente para responder
+                    a este mensaje.
+                  </span>
+                </div>
+          
+                <!-- Botón -->
+                <button type="submit" id="mailboxSubmit" class="mailbox-submit">
+          
+                  <span class="mailbox-button-text">
+                    Enviar mensaje
+                  </span>
+          
+                  <i class="fas fa-paper-plane"></i>
+          
+                </button>
+          
+                <!-- Resultado -->
+                <div
+                  id="mailboxResult"
+                  class="mailbox-result"
+                  role="status"
+                  aria-live="polite"
+                ></div>
+          
+              </form>
+          
+            </div>
+          
+          </section>
         </div>
       </section>
     </div>

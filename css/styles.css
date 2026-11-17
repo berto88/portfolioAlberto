@@ -2057,3 +2057,268 @@
 }
   
   
+/* ==========================================
+   BUZÓN DE SUGERENCIAS
+   ========================================== */
+
+.mailbox-section {
+  padding: 90px 20px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.mailbox-container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* CABECERA */
+
+.mailbox-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.mailbox-eyebrow {
+  display: inline-block;
+  color: var(--accent);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.mailbox-header h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 15px;
+}
+
+.mailbox-header p {
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* FORMULARIO */
+
+.mailbox-form {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.mailbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.mailbox-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  position: relative;
+}
+
+.mailbox-field label {
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.mailbox-field input,
+.mailbox-field select,
+.mailbox-field textarea {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: .9rem;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.mailbox-field input:focus,
+.mailbox-field select:focus,
+.mailbox-field textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+.mailbox-field input::placeholder,
+.mailbox-field textarea::placeholder {
+  color: var(--muted);
+  opacity: .7;
+}
+
+.mailbox-field textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.mailbox-field select {
+  cursor: pointer;
+}
+
+.mailbox-counter {
+  text-align: right;
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+/* ARCHIVOS */
+
+.mailbox-file-input {
+  display: none;
+}
+
+.mailbox-upload {
+  min-height: 100px;
+  padding: 20px;
+  border: 1px dashed var(--accent);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  cursor: pointer;
+  background: var(--bg);
+  transition: background .2s, border-color .2s;
+}
+
+.mailbox-upload:hover {
+  background: var(--surface-2);
+  border-color: var(--accent);
+}
+
+.mailbox-upload-icon {
+  font-size: 1.8rem;
+  color: var(--accent);
+}
+
+.mailbox-upload-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mailbox-upload-text small {
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+.mailbox-file-info {
+  font-size: .82rem;
+  color: var(--accent);
+  overflow-wrap: anywhere;
+}
+
+.mailbox-help {
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+/* PRIVACIDAD */
+
+.mailbox-privacy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.5;
+}
+
+.mailbox-privacy i {
+  color: var(--accent);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* BOTÓN */
+
+.mailbox-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 22px;
+  border: none;
+  border-radius: 9px;
+  background: var(--accent);
+  color: #fff;
+  font-size: .95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s, opacity .2s, filter .2s;
+}
+
+.mailbox-submit:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.mailbox-submit:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* RESULTADOS */
+
+.mailbox-result {
+  display: none;
+  padding: 14px 16px;
+  border-radius: 9px;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.mailbox-result.success {
+  display: block;
+  color: #16a34a;
+  background: rgba(22, 163, 74, .10);
+  border: 1px solid rgba(22, 163, 74, .3);
+}
+
+.mailbox-result.error {
+  display: block;
+  color: #ef4444;
+  background: rgba(239, 68, 68, .10);
+  border: 1px solid rgba(239, 68, 68, .3);
+}
+
+.mailbox-hidden {
+  display: none !important;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+  .mailbox-section {
+    padding: 60px 15px;
+  }
+
+  .mailbox-form {
+    padding: 22px 17px;
+    gap: 19px;
+  }
+
+  .mailbox-grid {
+    grid-template-columns: 1fr;
+    gap: 19px;
+  }
+
+  .mailbox-upload {
+    padding: 16px 10px;
+  }
+
+}
