@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
     /* ---------- Elementos ---------- */
     const modal = document.getElementById("mailboxModal");
-    const openBtn = document.getElementById("openMailbox");
     const closeBtn = document.getElementById("closeMailbox");
     const form = document.getElementById("mailboxForm");
     const submitBtn = document.getElementById("mailboxSubmit");
@@ -22,11 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttonText = submitBtn.querySelector(".mailbox-button-text");
     const originalText = buttonText ? buttonText.textContent : "";
   
-    /* ---------- Abrir / cerrar modal ---------- */
-    if (openBtn) openBtn.addEventListener("click", () => modal.showModal());
+    /* ---------- Cerrar modal ---------- */
     if (closeBtn) closeBtn.addEventListener("click", () => modal.close());
-  
-    // Cerrar al pulsar fuera del modal
     modal.addEventListener("click", (e) => {
       if (e.target === modal) modal.close();
     });
@@ -50,9 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     let toastTimer;
-    function showToast(text, isError = false) {
+    function showToast(text) {
+      if (!toast) return;
       toast.textContent = text;
-      toast.classList.toggle("error", isError);
       toast.classList.add("show");
       clearTimeout(toastTimer);
       toastTimer = setTimeout(() => toast.classList.remove("show"), 4500);
