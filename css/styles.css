@@ -2609,3 +2609,8 @@
 .mailbox-modal .mailbox-result.success {
   display: block;
 }
+
+.mailbox-modal .mailbox-field label small {
+  color: var(--muted);
+  font-weight: 400;
+}

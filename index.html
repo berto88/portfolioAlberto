@@ -685,11 +685,8 @@
   </div>
 
   <div class="modal-content">
-    <form id="mailboxForm" class="mailbox-form"
-      action="https://formsubmit.co/bertotorre88@gmail.com"
-      method="POST" enctype="multipart/form-data" target="mailboxFrame">
+    <form id="mailboxForm" class="mailbox-form">
 
-    <iframe name="mailboxFrame" id="mailboxFrame" hidden></iframe>
       <input type="hidden" name="_subject" value="Nuevo mensaje desde mi portfolio">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
@@ -732,22 +729,11 @@
         <span class="mailbox-counter"><span id="mailboxCharCount">0</span>/3000</span>
       </div>
 
-      <div class="mailbox-field">
-
-        <label for="mailboxFile" class="mailbox-upload">
-          <i class="fas fa-cloud-upload-alt mailbox-upload-icon"></i>
-          <span class="mailbox-upload-text">
-            <strong>Seleccionar archivos</strong>
-            <small>PDF, imágenes, documentos o ZIP (máx. 5 archivos, 5 MB cada uno)</small>
-          </span>
-        </label>
-
-        <input type="file" id="mailboxFile" name="attachment" class="mailbox-file-input"
-          accept=".pdf,.png,.jpg,.jpeg,.webp,.doc,.docx,.txt,.zip" multiple>
-
-        <div id="mailboxFileInfo" class="mailbox-file-list">
-          <span class="mailbox-empty">Ningún archivo seleccionado</span>
-        </div>
+        <div class="mailbox-field">
+        <label for="mailboxLink">Enlace a archivos <small>(opcional)</small></label>
+        <input type="url" id="mailboxLink" name="enlace_archivos"
+          placeholder="Pega aquí un enlace de Google Drive, WeTransfer...">
+        <small class="mailbox-help">Si quieres compartir PDF o imágenes, súbelos a tu Drive y pega el enlace.</small>
       </div>
 
       <div class="mailbox-privacy">

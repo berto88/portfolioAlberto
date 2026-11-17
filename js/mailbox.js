@@ -1,15 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ---------- Configuración ---------- */
-    const MAX_FILES = 5;
-    const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB por archivo
+    const ENDPOINT = "https://formsubmit.co/ajax/bertotorre88@gmail.com";
+    const TIMEOUT_MS = 20000;
   
     /* ---------- Elementos ---------- */
     const modal = document.getElementById("mailboxModal");
     const openBtn = document.getElementById("openMailbox");
     const closeBtn = document.getElementById("closeMailbox");
     const form = document.getElementById("mailboxForm");
-    const frame = document.getElementById("mailboxFrame");
     const submitBtn = document.getElementById("mailboxSubmit");
     const result = document.getElementById("mailboxResult");
     const toast = document.getElementById("mailboxToast");
@@ -17,119 +16,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const charCount = document.getElementById("mailboxCharCount");
     const emailInput = document.getElementById("mailboxEmail");
     const replyTo = document.getElementById("mailboxReplyTo");
-    const fileInput = document.getElementById("mailboxFile");
-    const fileInfo = document.getElementById("mailboxFileInfo");
   
-    if (!modal || !form || !frame) return;
+    if (!modal || !form || !submitBtn) return;
   
-    let selectedFiles = [];
+    const buttonText = submitBtn.querySelector(".mailbox-button-text");
+    const originalText = buttonText ? buttonText.textContent : "";
   
     /* ---------- Abrir / cerrar modal ---------- */
-    openBtn.addEventListener("click", () => modal.showModal());
-    closeBtn.addEventListener("click", () => modal.close());
+    if (openBtn) openBtn.addEventListener("click", () => modal.showModal());
+    if (closeBtn) closeBtn.addEventListener("click", () => modal.close());
+  
+    // Cerrar al pulsar fuera del modal
     modal.addEventListener("click", (e) => {
       if (e.target === modal) modal.close();
     });
   
     /* ---------- Contador de caracteres ---------- */
-    message.addEventListener("input", () => {
-      charCount.textContent = message.value.length;
-    });
-  
-    /* ---------- Archivos ---------- */
-    fileInput.addEventListener("change", () => {
-      const errors = [];
-  
-      Array.from(fileInput.files).forEach((file) => {
-        const exists = selectedFiles.some(
-          (f) =>
-            f.name === file.name &&
-            f.size === file.size &&
-            f.lastModified === file.lastModified
-        );
-        if (exists) return;
-  
-        if (file.size > MAX_FILE_SIZE) {
-          errors.push(`"${file.name}" supera los 5 MB.`);
-          return;
-        }
-        if (selectedFiles.length >= MAX_FILES) {
-          errors.push(`Máximo ${MAX_FILES} archivos.`);
-          return;
-        }
-        selectedFiles.push(file);
-      });
-  
-      syncInput();
-      renderFiles();
-  
-      if (errors.length) showResult("error", [...new Set(errors)].join(" "));
-      else hideResult();
-    });
-  
-    function syncInput() {
-      const dt = new DataTransfer();
-      selectedFiles.forEach((f) => dt.items.add(f));
-      fileInput.files = dt.files;
-    }
-  
-    function formatSize(bytes) {
-      if (bytes < 1024 * 1024) return Math.max(1, Math.round(bytes / 1024)) + " KB";
-      return (bytes / (1024 * 1024)).toFixed(2) + " MB";
-    }
-  
-    function fileIcon(name) {
-      const ext = name.split(".").pop().toLowerCase();
-      if (ext === "pdf") return "fa-file-pdf";
-      if (["png", "jpg", "jpeg", "webp"].includes(ext)) return "fa-file-image";
-      if (["doc", "docx"].includes(ext)) return "fa-file-word";
-      if (ext === "zip") return "fa-file-zipper";
-      return "fa-file-lines";
-    }
-  
-    function renderFiles() {
-      fileInfo.innerHTML = "";
-  
-      if (selectedFiles.length === 0) {
-        const empty = document.createElement("span");
-        empty.className = "mailbox-empty";
-        empty.textContent = "Ningún archivo seleccionado";
-        fileInfo.appendChild(empty);
-        return;
-      }
-  
-      selectedFiles.forEach((file, index) => {
-        const item = document.createElement("div");
-        item.className = "mailbox-file-item";
-  
-        const iconBox = document.createElement("div");
-        iconBox.className = "mailbox-file-icon";
-        iconBox.innerHTML = `<i class="fas ${fileIcon(file.name)}"></i>`;
-  
-        const details = document.createElement("div");
-        details.className = "mailbox-file-details";
-  
-        const name = document.createElement("strong");
-        name.textContent = file.name;
-        name.title = file.name;
-  
-        const size = document.createElement("small");
-        size.textContent = formatSize(file.size);
-  
-        const remove = document.createElement("button");
-        remove.type = "button";
-        remove.className = "mailbox-file-remove";
-        remove.innerHTML = '<i class="fas fa-times"></i>';
-        remove.setAttribute("aria-label", "Eliminar " + file.name);
-        remove.addEventListener("click", () => {
-          selectedFiles.splice(index, 1);
-          syncInput();
-          renderFiles();
-        });
-  
-        details.append(name, size);
-        item.append(iconBox, details, remove);
-        fileInfo.appendChild(item);
+    if (message && charCount) {
+      message.addEventListener("input", () => {
+        charCount.textContent = message.value.length;
       });
     }
   
@@ -153,44 +58,52 @@ document.addEventListener("DOMContentLoaded", () => {
       toastTimer = setTimeout(() => toast.classList.remove("show"), 4500);
     }
   
-    /* ---------- Envío (formulario clásico + iframe oculto) ---------- */
-    const buttonText = submitBtn.querySelector(".mailbox-button-text");
-    const originalText = buttonText.textContent;
-    let sending = false;
-    let sendTimer;
+    function setSending(isSending) {
+      submitBtn.disabled = isSending;
+      if (buttonText) buttonText.textContent = isSending ? "Enviando..." : originalText;
+    }
   
-    form.addEventListener("submit", () => {
+    /* ---------- Envío ---------- */
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
       hideResult();
-      if (replyTo) replyTo.value = emailInput.value;
-      syncInput(); // asegura que el input lleva los archivos seleccionados
   
-      sending = true;
-      submitBtn.disabled = true;
-      buttonText.textContent = "Enviando...";
+      if (replyTo && emailInput) replyTo.value = emailInput.value;
   
-      sendTimer = setTimeout(() => {
-        if (!sending) return;
-        sending = false;
-        submitBtn.disabled = false;
-        buttonText.textContent = originalText;
-        showResult("error", "No se obtuvo confirmación. Inténtalo de nuevo.");
-      }, 30000);
-    });
+      setSending(true);
   
-    frame.addEventListener("load", () => {
-      if (!sending) return;
-      sending = false;
-      clearTimeout(sendTimer);
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), TIMEOUT_MS);
   
-      modal.close();
-      form.reset();
-      selectedFiles = [];
-      syncInput();
-      renderFiles();
-      charCount.textContent = "0";
-      submitBtn.disabled = false;
-      buttonText.textContent = originalText;
-      showToast("✓ Mensaje enviado correctamente. ¡Gracias!");
+      try {
+        const response = await fetch(ENDPOINT, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+          signal: controller.signal
+        });
+  
+        const data = await response.json().catch(() => ({}));
+        console.log("Respuesta FormSubmit:", response.status, data);
+  
+        if (response.ok && String(data.success) !== "false") {
+          modal.close();
+          form.reset();
+          if (charCount) charCount.textContent = "0";
+          showToast("✓ Mensaje enviado correctamente. ¡Gracias!");
+        } else {
+          throw new Error(data.message || "Error " + response.status);
+        }
+      } catch (err) {
+        console.error(err);
+        const msg = err.name === "AbortError"
+          ? "El servidor tardó demasiado en responder."
+          : err.message;
+        showResult("error", "No se pudo enviar: " + msg);
+      } finally {
+        clearTimeout(timeout);
+        setSending(false);
+      }
     });
   
   });
