@@ -685,8 +685,11 @@
   </div>
 
   <div class="modal-content">
-    <form id="mailboxForm" class="mailbox-form" enctype="multipart/form-data">
+    <form id="mailboxForm" class="mailbox-form"
+      action="https://formsubmit.co/bertotorre88@gmail.com"
+      method="POST" enctype="multipart/form-data" target="mailboxFrame">
 
+    <iframe name="mailboxFrame" id="mailboxFrame" hidden></iframe>
       <input type="hidden" name="_subject" value="Nuevo mensaje desde mi portfolio">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
@@ -730,7 +733,7 @@
       </div>
 
       <div class="mailbox-field">
-        
+
         <label for="mailboxFile" class="mailbox-upload">
           <i class="fas fa-cloud-upload-alt mailbox-upload-icon"></i>
           <span class="mailbox-upload-text">
