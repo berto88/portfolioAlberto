@@ -783,35 +783,33 @@
                   </span>
                 </div>
           
-                <!-- Adjuntar archivo -->
                 <div class="mailbox-field">
-                  <label for="mailboxFile">Archivo adjunto (opcional)</label>
-          
+                  <label for="mailboxFile">Adjuntar archivos</label>
+                
                   <label for="mailboxFile" class="mailbox-upload">
-                    <span class="mailbox-upload-icon">
-                      <i class="fas fa-cloud-upload-alt"></i>
-                    </span>
-          
-                    <span class="mailbox-upload-text">
-                      <strong>Seleccionar archivo</strong>
+                    <i class="fas fa-cloud-upload-alt"></i>
+                
+                    <span>
+                      <strong>Seleccionar archivos</strong>
                       <small>PDF, imágenes, documentos o ZIP</small>
                     </span>
                   </label>
-          
+                
                   <input
                     type="file"
                     id="mailboxFile"
                     name="attachment"
                     class="mailbox-file-input"
                     accept=".pdf,.png,.jpg,.jpeg,.webp,.doc,.docx,.txt,.zip"
+                    multiple
                   >
-          
+                
                   <div id="mailboxFileInfo" class="mailbox-file-info">
                     Ningún archivo seleccionado
                   </div>
-          
+                
                   <small class="mailbox-help">
-                    Tamaño máximo: 5 MB. Un único archivo.
+                    Puedes seleccionar varios archivos.
                   </small>
                 </div>
           
