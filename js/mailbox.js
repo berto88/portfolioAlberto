@@ -88,6 +88,20 @@ document.addEventListener("DOMContentLoaded", () => {
       fileInput.files = dt.files;
     }
   
+    function formatSize(bytes) {
+        if (bytes < 1024 * 1024) return Math.max(1, Math.round(bytes / 1024)) + " KB";
+        return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+      }
+      
+      function fileIcon(name) {
+        const ext = name.split(".").pop().toLowerCase();
+        if (ext === "pdf") return "fa-file-pdf";
+        if (["png", "jpg", "jpeg", "webp"].includes(ext)) return "fa-file-image";
+        if (["doc", "docx"].includes(ext)) return "fa-file-word";
+        if (ext === "zip") return "fa-file-zipper";
+        return "fa-file-lines";
+      }
+
     function renderFiles() {
         fileInfo.innerHTML = "";
       
