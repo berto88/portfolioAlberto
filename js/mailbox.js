@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ---------- Configuración ---------- */
     const ENDPOINT = "https://formsubmit.co/ajax/bertotorre88@gmail.com";
-    const TIMEOUT_MS = 20000;
+    const TIMEOUT_MS = 60000;
   
     /* ---------- Elementos ---------- */
     const modal = document.getElementById("mailboxModal");
