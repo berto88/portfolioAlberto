@@ -63,6 +63,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   
       syncInput();
+      function formatSize(bytes) {
+        if (bytes < 1024 * 1024) return Math.max(1, Math.round(bytes / 1024)) + " KB";
+        return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+      }
+      
+      function fileIcon(name) {
+        const ext = name.split(".").pop().toLowerCase();
+        if (ext === "pdf") return "fa-file-pdf";
+        if (["png", "jpg", "jpeg", "webp"].includes(ext)) return "fa-file-image";
+        if (["doc", "docx"].includes(ext)) return "fa-file-word";
+        if (ext === "zip") return "fa-file-zipper";
+        return "fa-file-lines";
+      }
       renderFiles();
   
       if (errors.length) showResult("error", [...new Set(errors)].join(" "));
@@ -76,48 +89,50 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     function renderFiles() {
-      fileInfo.innerHTML = "";
-  
-      if (selectedFiles.length === 0) {
-        const empty = document.createElement("span");
-        empty.className = "mailbox-empty";
-        empty.textContent = "Ningún archivo seleccionado";
-        fileInfo.appendChild(empty);
-        return;
-      }
-  
-      selectedFiles.forEach((file, index) => {
-        const item = document.createElement("div");
-        item.className = "mailbox-file-item";
-  
-        const icon = document.createElement("i");
-        icon.className = "fas fa-file-alt";
-  
-        const details = document.createElement("div");
-        details.className = "mailbox-file-details";
-  
-        const name = document.createElement("strong");
-        name.textContent = file.name;
-  
-        const size = document.createElement("small");
-        size.textContent = (file.size / (1024 * 1024)).toFixed(2) + " MB";
-  
-        const remove = document.createElement("button");
-        remove.type = "button";
-        remove.className = "mailbox-file-remove";
-        remove.innerHTML = '<i class="fas fa-times"></i>';
-        remove.setAttribute("aria-label", "Eliminar " + file.name);
-        remove.addEventListener("click", () => {
-          selectedFiles.splice(index, 1);
-          syncInput();
-          renderFiles();
+        fileInfo.innerHTML = "";
+      
+        if (selectedFiles.length === 0) {
+          const empty = document.createElement("span");
+          empty.className = "mailbox-empty";
+          empty.textContent = "Ningún archivo seleccionado";
+          fileInfo.appendChild(empty);
+          return;
+        }
+      
+        selectedFiles.forEach((file, index) => {
+          const item = document.createElement("div");
+          item.className = "mailbox-file-item";
+      
+          const iconBox = document.createElement("div");
+          iconBox.className = "mailbox-file-icon";
+          iconBox.innerHTML = `<i class="fas ${fileIcon(file.name)}"></i>`;
+      
+          const details = document.createElement("div");
+          details.className = "mailbox-file-details";
+      
+          const name = document.createElement("strong");
+          name.textContent = file.name;
+          name.title = file.name;
+      
+          const size = document.createElement("small");
+          size.textContent = formatSize(file.size);
+      
+          const remove = document.createElement("button");
+          remove.type = "button";
+          remove.className = "mailbox-file-remove";
+          remove.innerHTML = '<i class="fas fa-times"></i>';
+          remove.setAttribute("aria-label", "Eliminar " + file.name);
+          remove.addEventListener("click", () => {
+            selectedFiles.splice(index, 1);
+            syncInput();
+            renderFiles();
+          });
+      
+          details.append(name, size);
+          item.append(iconBox, details, remove);
+          fileInfo.appendChild(item);
         });
-  
-        details.append(name, size);
-        item.append(icon, details, remove);
-        fileInfo.appendChild(item);
-      });
-    }
+      }
   
     /* ---------- Mensajes ---------- */
     function showResult(type, text) {

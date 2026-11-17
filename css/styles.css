@@ -2437,7 +2437,7 @@
   .mailbox-toast.error {
     border-color: #ef4444;
   }
-  
+
   /* Modal del buzón: el contenido ocupa el espacio restante y hace scroll */
 .mailbox-modal[open] {
   display: flex;
@@ -2455,4 +2455,157 @@
   max-height: none;
   overflow-y: auto;
   padding-bottom: 30px;
+}
+
+/* ==========================================
+   SUBIDA DE ARCHIVOS (modal del buzón)
+   ========================================== */
+
+/* El recuadro es un <label>: anulamos el estilo de los labels normales */
+.mailbox-modal .mailbox-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 110px;
+  padding: 22px 16px;
+  text-align: center;
+  font-weight: 400;
+  font-size: .9rem;
+  cursor: pointer;
+  border: 2px dashed color-mix(in srgb, var(--accent) 55%, transparent);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface-2));
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.mailbox-modal .mailbox-upload:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface-2));
+  transform: translateY(-1px);
+}
+
+.mailbox-modal .mailbox-upload-icon {
+  font-size: 1.9rem;
+  color: var(--accent);
+}
+
+.mailbox-modal .mailbox-upload-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mailbox-modal .mailbox-upload-text strong {
+  font-size: .95rem;
+  color: var(--text);
+}
+
+.mailbox-modal .mailbox-upload-text small {
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 400;
+}
+
+/* Lista de archivos */
+.mailbox-modal .mailbox-file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.mailbox-modal .mailbox-empty {
+  color: var(--muted);
+  font-size: .8rem;
+  text-align: center;
+  padding: 4px 0;
+}
+
+.mailbox-modal .mailbox-file-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  animation: file-in .2s ease-out;
+}
+
+@keyframes file-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Icono dentro de un cuadrado */
+.mailbox-modal .mailbox-file-icon {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  font-size: 1.15rem;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.mailbox-modal .mailbox-file-details {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mailbox-modal .mailbox-file-details strong {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mailbox-modal .mailbox-file-details small {
+  font-size: .75rem;
+  color: var(--muted);
+}
+
+.mailbox-modal .mailbox-file-remove {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-size: .95rem;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+
+.mailbox-modal .mailbox-file-remove:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, .1);
+  border-color: rgba(239, 68, 68, .3);
+}
+
+/* Mensaje de error / aviso */
+.mailbox-modal .mailbox-result {
+  display: none;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: .85rem;
+  line-height: 1.5;
+}
+
+.mailbox-modal .mailbox-result.error,
+.mailbox-modal .mailbox-result.success {
+  display: block;
 }
